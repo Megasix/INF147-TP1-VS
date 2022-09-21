@@ -14,7 +14,7 @@ Auteur(e) :
 ****************************************************************************************/
 
 // Mode pour les tests unitaires
-#define TESTS 0
+#define TESTS 1
 
 // Librairies utilisées par l'application an mode normal
 #if !TESTS
@@ -23,7 +23,7 @@ Auteur(e) :
 #endif
 
 // (Dés)activation des tests pour les différents modules
-#define TESTS_BITS    0
+#define TESTS_BITS    1
 #define TESTS_COM     0
 #define TESTS_MATH    0
 #define TESTS_CNC     0
@@ -81,7 +81,7 @@ Retour :
 		#if TESTS_BITS
 			test_BITS_obtenir();
 			test_BITS_basculer();
-			test_BITS_afficher();
+			//test_BITS_afficher();
 			test_BITS_extraire();
 		#endif
 

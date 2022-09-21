@@ -2,7 +2,29 @@
 
 /* À remplir */
 
-/*
+int BITS_obtenir(unsigned int valeur, int position)
+{
+	if(position >= 1)
+		return (valeur & (1U << (position -  1))) != 0;
+	return 0;
+}
+
+void BITS_basculer(unsigned int* valeur, int position)
+{
+	if(position >= 1)
+		*valeur ^= (1U << (position - 1));
+}
+
+unsigned int BITS_extraire(unsigned int valeur, int position_1, int position_2)
+{
+	unsigned int ret = 0;
+	for (unsigned int pos = position_1; pos <= position_2; pos++)
+	{
+		ret += BITS_obtenir(valeur, pos) << (pos - position_1);
+	}
+	return ret;
+}
+
 void test_BITS_obtenir(void)
 {
 
@@ -75,4 +97,3 @@ void test_BITS_extraire(void)
 	printf("\t\tReponse obtenue  : %u\n", valeur_obtenue_2);
 
 }
-*/
