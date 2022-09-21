@@ -13,7 +13,7 @@ void BITS_basculer(unsigned int *valeur, unsigned int position) {
 
 unsigned int BITS_extraire(unsigned int valeur, unsigned int bit_depart, unsigned int bit_fin) {
     unsigned int mask = pow(2,bit_fin)- pow(2,bit_depart-1);
-    return valeur & mask;
+    return (valeur & mask) >> (bit_depart-1);
 }
 
 
