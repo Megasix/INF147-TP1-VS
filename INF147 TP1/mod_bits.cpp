@@ -1,8 +1,41 @@
 #include "mod_bits.h"
 
-/* À remplir */
+/* Ã€ remplir */
 
-/*
+unsigned int BITS_obtenir(unsigned int valeur, unsigned int position)
+{
+	if (position >= 1)
+	{
+		unsigned int valeur_bit = valeur >> position-1;
+		valeur_bit &= 0b1;
+		return valeur_bit;
+	}
+	
+}
+
+void BITS_basculer(unsigned int* valeur, unsigned int position)
+{
+	unsigned int masque = 0b1;
+	if (position >= 1)
+	{
+		*valeur ^= masque << (position -1);
+	}
+}
+
+unsigned int BITS_extraire(unsigned int valeur, unsigned int bit_depart, unsigned int bit_fin)
+{
+	unsigned int segment_bits = 0;
+	unsigned int masque = 0b0;
+	for (int i = bit_depart; i <= bit_fin; i++)
+	{
+		BITS_basculer(&masque, i);
+	}
+	segment_bits = valeur & masque;
+
+	return segment_bits;
+}
+
+
 void test_BITS_obtenir(void)
 {
 
@@ -75,4 +108,3 @@ void test_BITS_extraire(void)
 	printf("\t\tReponse obtenue  : %u\n", valeur_obtenue_2);
 
 }
-*/
