@@ -26,3 +26,37 @@ double MATH_racine_carree(double x)
 
 	return racine_carree;
 }
+
+void test_MATH_puissance(void)
+{
+	const double valeur_attendue_1 = 1.000;
+	const double valeur_attendue_2 = 1.000;
+	const double valeur_attendue_3 = 1.000;
+	const double valeur_attendue_4 = 4.000;
+	const double valeur_attendue_5 = 4747561509943.000;
+
+	double valeur_obtenue_1 = MATH_puissance(1.0,0);
+	double valeur_obtenue_2 = MATH_puissance(1.0,1);
+	double valeur_obtenue_3 = MATH_puissance(1.0,2);
+	double valeur_obtenue_4 = MATH_puissance(2.0,2);
+	double valeur_obtenue_5 = MATH_puissance(7.0,15);
+
+	printf("\n\tTest no.1 - MATH_pusisance(1.0,0\n\n");
+	printf("\t\tReponse attendue : %lf\n", valeur_attendue_1);
+	printf("\t\tReponse obtenue  : %lf\n", valeur_obtenue_1);
+
+	printf("\n\tTest no.2 - MATH_pusisance(1.0,1\n\n");
+	printf("\t\tReponse attendue : %lf\n", valeur_attendue_2);
+	printf("\t\tReponse obtenue  : %lf\n", valeur_obtenue_2);
+
+	printf("\n\tTest no.3 - MATH_pusisance(1.0,2\n\n");
+	printf("\t\tReponse attendue : %lf\n", valeur_attendue_3);
+	printf("\t\tReponse obtenue  : %lf\n", valeur_obtenue_3);
+
+	printf("\n\tTest no.4 - MATH_pusisance(2.0,2\n\n");
+	printf("\t\tReponse attendue : %lf\n", valeur_attendue_4);
+	printf("\t\tReponse obtenue  : %lf\n", valeur_obtenue_4);
+
+	printf("\n\tTest no.5 - MATH_pusisance(7.0,15\n\n");
+	printf("\t\tReponse attendue : %lf\n", valeur_attendue_5);
+	printf("\t\tReponse obtenue  : %lf\n", valeur_obtenue_5);
