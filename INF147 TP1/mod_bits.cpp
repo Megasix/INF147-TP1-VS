@@ -3,7 +3,7 @@
 #define POSITION_MIN		1
 #define MASQUE_BIT_1		0b1
 
-unsigned int BITS_obtenir(unsigned int valeur, int position)
+unsigned int BITS_obtenir(unsigned int valeur, unsigned int position)
 {
 	unsigned int valeur_bit = 0;
 	if(position >= POSITION_MIN)
@@ -11,19 +11,19 @@ unsigned int BITS_obtenir(unsigned int valeur, int position)
 	return valeur_bit;
 }
 
-void BITS_basculer(unsigned int* valeur, int position)
+void BITS_basculer(unsigned int* valeur, unsigned int position)
 {
 	if(position >= POSITION_MIN)
 		*valeur ^= (MASQUE_BIT_1 << (position - 1));
 }
 
-unsigned int BITS_extraire(unsigned int valeur, int position_1, int position_2)
+unsigned int BITS_extraire(unsigned int valeur, unsigned int bit_depart, unsigned int bit_fin)
 {
 	unsigned int segment_bits = 0;
-	for (unsigned int pos = position_1; pos <= position_2; pos++)
+	for (unsigned int position = bit_depart; position <= bit_fin; position++)
 	{
-		if (BITS_obtenir(valeur, pos))
-			BITS_basculer(&segment_bits, pos - (position_1 - 1));
+		if (BITS_obtenir(valeur, position))
+			BITS_basculer(&segment_bits, position - (bit_depart - 1));
 	}
 	return segment_bits;
 }
