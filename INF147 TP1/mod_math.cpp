@@ -61,3 +61,22 @@ void test_MATH_puissance(void)
 	printf("\t\tReponse attendue : %lf\n", valeur_attendue_5);
 	printf("\t\tReponse obtenue  : %lf\n", valeur_obtenue_5);
 }
+
+void test_MATH_racine_carree(void)
+{
+	const double valeur_attendue_1 = 1.414;
+	const double valeur_attendue_2 = 2.000;
+
+	double valeur_obtenue_1 = MATH_racine_carree(2.0);
+	double valeur_obtenue_2 = MATH_racine_carree(4.0);
+
+	printf("\n\tTest no.1 - MATH_racine_carree(2.0\n\n");
+	printf("\t\tReponse attendue : %lf\n", valeur_attendue_1);
+	printf("\t\tReponse obtenue  : %lf\n", valeur_obtenue_1);
+
+	printf("\n\tTest no.2 - MATH_racine_carree(4.0\n\n");
+	printf("\t\tReponse attendue : %lf\n", valeur_attendue_2);
+	printf("\t\tReponse obtenue  : %lf\n", valeur_obtenue_2);
+
+}
+
