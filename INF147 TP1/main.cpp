@@ -24,7 +24,7 @@ Auteur(e) :
 
 // (Dés)activation des tests pour les différents modules
 #define TESTS_BITS    1
-#define TESTS_COM     0
+#define TESTS_COM     1
 #define TESTS_MATH    0
 #define TESTS_CNC     0
 #define TESTS_TRACEUR 0
