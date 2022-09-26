@@ -7,7 +7,50 @@
 #define BIT_ACTIF    1		// Un bit allumé
 #define BIT_INACTIF  0		// Un bit éteint
 
-/* À remplir */
+/*
+ BITS_OBTENIR
+
+	Retourne l'etat d'un bit a une position donnee.
+
+ PARAMÈTRES :
+
+	 Aucuns.
+
+ VALEUR DE RETOUR :
+
+	Aucune.
+*/
+unsigned int BITS_obtenir(unsigned int valeur, int position);
+
+/*
+ BITS_BASCULER
+
+	Suite de tests unitaires pour BITS_basculer.
+
+ PARAMÈTRES :
+
+	 Aucuns.
+
+ VALEUR DE RETOUR :
+
+	Aucune.
+*/
+void BITS_basculer(unsigned int* valeur, int position);
+
+/*
+ BITS_EXTRAIRE
+
+	Suite de tests unitaires pour BITS_extraire.
+
+ PARAMÈTRES :
+
+	 Aucuns.
+
+ VALEUR DE RETOUR :
+
+	Aucune.
+*/
+unsigned int BITS_extraire(unsigned int valeur, int position_1, int position_2);
 
 /*
  TEST_BITS_OBTENIR
