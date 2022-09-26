@@ -10,7 +10,7 @@
 
  PARAMÈTRES :
 
-	 une_commande: Une commande lue par la CNC.
+	une_commande: Une commande lue par la CNC.
 
  VALEUR DE RETOUR :
 
@@ -25,7 +25,7 @@ unsigned int COM_get_opcode(unsigned int une_commande);
 
  PARAMÈTRES :
 
-	 une_commande: Une commande lue par la CNC.
+	une_commande: Une commande lue par la CNC.
 
  VALEUR DE RETOUR :
 
@@ -40,7 +40,7 @@ unsigned int COM_get_operande_1(unsigned int une_commande);
 
  PARAMÈTRES :
 
-	 une_commande: Une commande lue par la CNC.
+	une_commande: Une commande lue par la CNC.
 
  VALEUR DE RETOUR :
 
@@ -55,7 +55,7 @@ unsigned int COM_get_operande_2(unsigned int une_commande);
 
  PARAMÈTRES :
 
-	 Aucuns.
+	Aucuns.
 
  VALEUR DE RETOUR :
 
@@ -70,7 +70,7 @@ void test_COM_get_opcode();
 
  PARAMÈTRES :
 
-	 Aucuns.
+	Aucuns.
 
  VALEUR DE RETOUR :
 
@@ -85,7 +85,7 @@ void test_COM_get_operande_1();
 
  PARAMÈTRES :
 
-	 Aucuns.
+	Aucuns.
 
  VALEUR DE RETOUR :
 
