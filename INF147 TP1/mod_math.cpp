@@ -60,3 +60,4 @@ void test_MATH_puissance(void)
 	printf("\n\tTest no.5 - MATH_pusisance(7.0,15\n\n");
 	printf("\t\tReponse attendue : %lf\n", valeur_attendue_5);
 	printf("\t\tReponse obtenue  : %lf\n", valeur_obtenue_5);
+}
