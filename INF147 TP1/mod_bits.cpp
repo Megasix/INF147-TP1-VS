@@ -2,7 +2,23 @@
 
 /* À remplir */
 
-/*
+int BITS_obtenir(unsigned int valeur, int position)
+{
+	unsigned int valeur_bit;
+	if (position >= 1)
+	{
+		valeur_bit = valeur >> position;
+		if (valeur_bit && 1) {
+			return 1;
+		}
+		else
+		{
+			return 0;
+		}
+	}
+
+}
+
 void test_BITS_obtenir(void)
 {
 
@@ -33,7 +49,7 @@ void test_BITS_obtenir(void)
 	printf("\n");
 
 }
-
+/*
 void test_BITS_basculer(void)
 {
 
