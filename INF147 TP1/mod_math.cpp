@@ -1,10 +1,6 @@
 #include "mod_math.h"
 
 
-#define E		0.0001
-#define PI		3.14159265
-
-
 double MATH_puissance(double x, int n)
 {
 	double xn = 1;
@@ -40,7 +36,7 @@ double MATH_racine_carree(double x)
 	double racine_carree = x;
 	double r_precedent = 0;
 
-	while (MATH_valeur_absolue(racine_carree - r_precedent) > E)
+	while (MATH_valeur_absolue(racine_carree - r_precedent) > MATH_EPSILON)
 	{
 		r_precedent = racine_carree;
 		racine_carree = (r_precedent + (x / r_precedent)) / 2;
@@ -64,8 +60,15 @@ unsigned int MATH_factorielle(unsigned int n)
 double MATH_sin(double x)
 {
 	double sin_x = 0;
+	double prochain_terme = 0;
+	int k = 0;
 
-
+	do
+	{
+		sin_x += (MATH_puissance(-1, k) * MATH_puissance(x, 2 * k + 1)) / MATH_factorielle(2 * k + 1 );
+		k++;
+		prochain_terme = MATH_puissance(-1, k) * MATH_puissance(x, 2 * k + 1) / MATH_factorielle(2 * k + 1);
+	} while (MATH_valeur_absolue(prochain_terme) > MATH_EPSILON);
 
 	return sin_x;
 }
@@ -73,6 +76,15 @@ double MATH_sin(double x)
 double MATH_cos(double x)
 {
 	double cos_x = 0;
+	double prochain_terme = 0;
+	int k = 0;
+
+	do
+	{
+		cos_x += (MATH_puissance(-1, k) * MATH_puissance(x, 2 * k)) / MATH_factorielle(2 * k);
+		k++;
+		prochain_terme = MATH_puissance(-1, k) * MATH_puissance(x, 2 * k) / MATH_factorielle(2 * k);
+	} while (MATH_valeur_absolue(prochain_terme) > MATH_EPSILON);
 
 	return cos_x;
 }
@@ -231,7 +243,7 @@ void test_MATH_sin()
 	printf("\t\tReponse attendue : %.3f\n", valeur_attendu_1);
 	printf("\t\tReponse obtenue  : %.3f\n", valeur_obtenue_1);
 
-	const double x_2 = PI/4;
+	const double x_2 = MATH_PI/4;
 	const double valeur_attendu_2 = 0.707;
 	double valeur_obtenue_2 = MATH_sin(x_2);
 
@@ -239,7 +251,7 @@ void test_MATH_sin()
 	printf("\t\tReponse attendue : %.3f\n", valeur_attendu_2);
 	printf("\t\tReponse obtenue  : %.3f\n", valeur_obtenue_2);
 
-	const double x_3 = PI/2;
+	const double x_3 = MATH_PI/2;
 	const double valeur_attendu_3 = 1.0;
 	double valeur_obtenue_3 = MATH_sin(x_3);
 
@@ -247,7 +259,7 @@ void test_MATH_sin()
 	printf("\t\tReponse attendue : %.3f\n", valeur_attendu_3);
 	printf("\t\tReponse obtenue  : %.3f\n", valeur_obtenue_3);
 
-	const double x_4 = 3 * PI / 4;
+	const double x_4 = 3 * MATH_PI / 4;
 	const double valeur_attendu_4 = 0.707;
 	double valeur_obtenue_4 = MATH_sin(x_4);
 
@@ -268,7 +280,7 @@ void test_MATH_cos()
 	printf("\t\tReponse attendue : %.3f\n", valeur_attendu_1);
 	printf("\t\tReponse obtenue  : %.3f\n", valeur_obtenue_1);
 
-	const double x_2 = PI/4;
+	const double x_2 = MATH_PI / 4;
 	const double valeur_attendu_2 = 0.707;
 	double valeur_obtenue_2 = MATH_cos(x_2);
 
@@ -276,7 +288,7 @@ void test_MATH_cos()
 	printf("\t\tReponse attendue : %.3f\n", valeur_attendu_2);
 	printf("\t\tReponse obtenue  : %.3f\n", valeur_obtenue_2);
 
-	const double x_3 = PI/2;
+	const double x_3 = MATH_PI / 2;
 	const double valeur_attendu_3 = 0.0;
 	double valeur_obtenue_3 = MATH_cos(x_3);
 
@@ -284,8 +296,8 @@ void test_MATH_cos()
 	printf("\t\tReponse attendue : %.3f\n", valeur_attendu_3);
 	printf("\t\tReponse obtenue  : %.3f\n", valeur_obtenue_3);
 
-	const double x_4 = 3*PI/4;
-	const double valeur_attendu_4 = 0.707;
+	const double x_4 = 3* MATH_PI / 4;
+	const double valeur_attendu_4 = -0.707;
 	double valeur_obtenue_4 = MATH_cos(x_4);
 
 	printf("\n\tTest no.3 - MATH_cos(3 * PI / 4)\n");

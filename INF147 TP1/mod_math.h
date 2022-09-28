@@ -3,6 +3,11 @@
 
 #include <stdio.h>
 
+
+#define MATH_EPSILON		0.0001
+#define MATH_PI				3.14159265
+
+
 /*
  MATH_PUISSANCE
 
