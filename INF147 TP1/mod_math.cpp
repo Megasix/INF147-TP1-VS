@@ -121,15 +121,15 @@ void test_MATH_sin(void)
 	printf("\t\tReponse attendue : %.3f\n", valeur_attendue_1);
 	printf("\t\tReponse obtenue  : %.3f\n", valeur_obtenue_1);
 
-	printf("\n\tTest no.2 - MATH_sin(0.0\n\n");
+	printf("\n\tTest no.2 - MATH_sin(PI / 4\n\n");
 	printf("\t\tReponse attendue : %.3f\n", valeur_attendue_2);
 	printf("\t\tReponse obtenue  : %.3f\n", valeur_obtenue_2);
 
-	printf("\n\tTest no.3 - MATH_sin(0.0\n\n");
+	printf("\n\tTest no.3 - MATH_sin(PI / 2\n\n");
 	printf("\t\tReponse attendue : %.3f\n", valeur_attendue_3);
 	printf("\t\tReponse obtenue  : %.3f\n", valeur_obtenue_3);
 
-	printf("\n\tTest no.4 - MATH_sin(0.0\n\n");
+	printf("\n\tTest no.4 - MATH_sin(3 * PI / 4\n\n");
 	printf("\t\tReponse attendue : %.3f\n", valeur_attendue_4);
 	printf("\t\tReponse obtenue  : %.3f\n", valeur_obtenue_4);
 
