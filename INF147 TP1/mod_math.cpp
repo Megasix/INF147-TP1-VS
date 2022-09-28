@@ -1,5 +1,4 @@
 #include "mod_math.h"
-#include "math.h"
 
 
 double MATH_puissance(double x, int n)
