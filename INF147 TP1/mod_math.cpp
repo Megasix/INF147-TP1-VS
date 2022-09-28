@@ -7,7 +7,7 @@ double MATH_puissance(double x, int n)
 
 	for (int i = n; i > 0; i--)
 	{
-		xn = xn * x;
+		xn *= x;
 	}
 
 	return xn;
@@ -60,6 +60,8 @@ double MATH_sin(double x)
 
 void test_MATH_puissance(void)
 {
+	printf("\nTEST_MATH_PUISSANCE\n");
+
 	const double valeur_attendue_1 = 1.000;
 	const double valeur_attendue_2 = 1.000;
 	const double valeur_attendue_3 = 1.000;
@@ -72,40 +74,42 @@ void test_MATH_puissance(void)
 	double valeur_obtenue_4 = MATH_puissance(2.0,2);
 	double valeur_obtenue_5 = MATH_puissance(7.0,15);
 
-	printf("\n\tTest no.1 - MATH_pusisance(1.0,0\n\n");
+	printf("\n\tTest no.1 - MATH_pusisance(1.0,0)\n\n");
 	printf("\t\tReponse attendue : %.3f\n", valeur_attendue_1);
 	printf("\t\tReponse obtenue  : %.3f\n", valeur_obtenue_1);
 
-	printf("\n\tTest no.2 - MATH_pusisance(1.0,1\n\n");
+	printf("\n\tTest no.2 - MATH_pusisance(1.0,1)\n\n");
 	printf("\t\tReponse attendue : %.3f\n", valeur_attendue_2);
 	printf("\t\tReponse obtenue  : %.3f\n", valeur_obtenue_2);
 
-	printf("\n\tTest no.3 - MATH_pusisance(1.0,2\n\n");
+	printf("\n\tTest no.3 - MATH_pusisance(1.0,2)\n\n");
 	printf("\t\tReponse attendue : %.3f\n", valeur_attendue_3);
 	printf("\t\tReponse obtenue  : %.3f\n", valeur_obtenue_3);
 
-	printf("\n\tTest no.4 - MATH_pusisance(2.0,2\n\n");
+	printf("\n\tTest no.4 - MATH_pusisance(2.0,2)\n\n");
 	printf("\t\tReponse attendue : %.3f\n", valeur_attendue_4);
 	printf("\t\tReponse obtenue  : %.3f\n", valeur_obtenue_4);
 
-	printf("\n\tTest no.5 - MATH_pusisance(7.0,15\n\n");
+	printf("\n\tTest no.5 - MATH_pusisance(7.0,15)\n\n");
 	printf("\t\tReponse attendue : %.3f\n", valeur_attendue_5);
 	printf("\t\tReponse obtenue  : %.3f\n", valeur_obtenue_5);
 }
 
 void test_MATH_racine_carree(void)
 {
+	printf("\nTEST_MATH_RACINE_CARREE\n");
+
 	const double valeur_attendue_1 = 1.414;
 	const double valeur_attendue_2 = 2.000;
 
 	double valeur_obtenue_1 = MATH_racine_carree(2.0);
 	double valeur_obtenue_2 = MATH_racine_carree(4.0);
 
-	printf("\n\tTest no.1 - MATH_racine_carree(2.0\n\n");
+	printf("\n\tTest no.1 - MATH_racine_carree(2.0)\n\n");
 	printf("\t\tReponse attendue : %.3f\n", valeur_attendue_1);
 	printf("\t\tReponse obtenue  : %.3f\n", valeur_obtenue_1);
 
-	printf("\n\tTest no.2 - MATH_racine_carree(4.0\n\n");
+	printf("\n\tTest no.2 - MATH_racine_carree(4.0)\n\n");
 	printf("\t\tReponse attendue : %.3f\n", valeur_attendue_2);
 	printf("\t\tReponse obtenue  : %.3f\n", valeur_obtenue_2);
 
@@ -113,6 +117,7 @@ void test_MATH_racine_carree(void)
 
 void test_MATH_sin(void)
 {
+	printf("\nTEST_MATH_SIN\n");
 
 	const double valeur_attendue_1 = 0.000;
 	const double valeur_attendue_2 = 0.707;
@@ -120,23 +125,23 @@ void test_MATH_sin(void)
 	const double valeur_attendue_4 = 0.707;
 
 	double valeur_obtenue_1 = MATH_sin(0.0);
-	double valeur_obtenue_2 = MATH_sin(PI /4);
-	double valeur_obtenue_3 = MATH_sin(PI /2);
-	double valeur_obtenue_4 = MATH_sin(3* PI /4);
+	double valeur_obtenue_2 = MATH_sin(PI / 4);
+	double valeur_obtenue_3 = MATH_sin(PI / 2);
+	double valeur_obtenue_4 = MATH_sin(3 * PI / 4);
 
-	printf("\n\tTest no.1 - MATH_sin(0.0\n\n");
+	printf("\n\tTest no.1 - MATH_sin(0.0)\n\n");
 	printf("\t\tReponse attendue : %.3f\n", valeur_attendue_1);
 	printf("\t\tReponse obtenue  : %.3f\n", valeur_obtenue_1);
 
-	printf("\n\tTest no.2 - MATH_sin(PI / 4\n\n");
+	printf("\n\tTest no.2 - MATH_sin(0.0)\n\n");
 	printf("\t\tReponse attendue : %.3f\n", valeur_attendue_2);
 	printf("\t\tReponse obtenue  : %.3f\n", valeur_obtenue_2);
 
-	printf("\n\tTest no.3 - MATH_sin(PI / 2\n\n");
+	printf("\n\tTest no.3 - MATH_sin(0.0)\n\n");
 	printf("\t\tReponse attendue : %.3f\n", valeur_attendue_3);
 	printf("\t\tReponse obtenue  : %.3f\n", valeur_obtenue_3);
 
-	printf("\n\tTest no.4 - MATH_sin(3 * PI / 4\n\n");
+	printf("\n\tTest no.4 - MATH_sin(0.0)\n\n");
 	printf("\t\tReponse attendue : %.3f\n", valeur_attendue_4);
 	printf("\t\tReponse obtenue  : %.3f\n", valeur_obtenue_4);
 
