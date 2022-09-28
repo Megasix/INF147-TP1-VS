@@ -14,7 +14,7 @@ double MATH_puissance(double x, int n)
 	return xn;
 }
 
-//valeur_absolue de barry, FONCTIONNEL
+//valeur_absolue de Barry, FONCTIONNEL
 double MATH_valeur_absolue(double x) {
 	double abs_x = x >= 0 ? x : -x;
 	return abs_x;
@@ -32,6 +32,14 @@ double MATH_racine_carree(double x)
 	}
 
 	return racine_carree;
+}
+
+//factorielle de Barry, FONCTIONNEL
+unsigned int MATH_factorielle(unsigned int n) {
+    unsigned int fact_n = 1;
+    for (int i = 2; i <= n; i++)
+        fact_n *= i;
+    return fact_n;
 }
 
 double MATH_sin(double x)
