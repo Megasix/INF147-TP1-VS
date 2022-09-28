@@ -92,6 +92,15 @@ double MATH_cos(double x)
 double MATH_atan(double x)
 {
 	double atan_x = 0;
+	double prochain_terme = 0;
+	int k = 0;
+
+	do
+	{
+		atan_x += (MATH_puissance(-1, k) * MATH_puissance(x, 2 * k + 1)) / (2 * k + 1);
+		k++;
+		prochain_terme = MATH_puissance(-1, k) * MATH_puissance(x, 2 * k + 1) / (2 * k + 1);
+	} while (MATH_valeur_absolue(prochain_terme) > MATH_EPSILON);
 
 	return atan_x;
 }
