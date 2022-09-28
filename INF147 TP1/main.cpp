@@ -14,7 +14,7 @@ Auteur(e) :
 ****************************************************************************************/
 
 // Mode pour les tests unitaires
-#define TESTS 0
+#define TESTS 1
 
 // Librairies utilisées par l'application an mode normal
 #if !TESTS
@@ -25,7 +25,7 @@ Auteur(e) :
 // (Dés)activation des tests pour les différents modules
 #define TESTS_BITS    0
 #define TESTS_COM     0
-#define TESTS_MATH    0
+#define TESTS_MATH    1
 #define TESTS_CNC     0
 #define TESTS_TRACEUR 0
 
@@ -80,9 +80,9 @@ Retour :
 
 		#if TESTS_BITS
 			test_BITS_obtenir();
-			test_BITS_basculer();
+			/*test_BITS_basculer();
 			test_BITS_afficher();
-			test_BITS_extraire();
+			test_BITS_extraire();*/
 		#endif
 
 		#if TESTS_COM
@@ -92,13 +92,13 @@ Retour :
 		#endif
 
 		#if TESTS_MATH
-			test_MATH_puissance();
-			test_MATH_valeur_absolue();
-			test_MATH_racine_carree();
-			test_MATH_factorielle();
+			//test_MATH_puissance();
+			//test_MATH_valeur_absolue();
+			//test_MATH_racine_carree();
+			//test_MATH_factorielle();
 			test_MATH_sin();
-			test_MATH_cos();
-			test_MATH_atan();
+			//test_MATH_cos();
+			//test_MATH_atan();
         #endif		
 	
 		#if TESTS_CNC
