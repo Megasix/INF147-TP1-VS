@@ -117,11 +117,6 @@ void test_MATH_sin(void)
 	double valeur_obtenue_3 = MATH_sin(PI /2);
 	double valeur_obtenue_4 = MATH_sin(3* PI /4);
 
-	double x1 = 0.0;
-	double x2 = PI / 4;
-	double x3 = PI / 2;
-	double x4 = 3 * PI / 4;
-
 	printf("\n\tTest no.1 - MATH_sin(0.0\n\n");
 	printf("\t\tReponse attendue : %.3f\n", valeur_attendue_1);
 	printf("\t\tReponse obtenue  : %.3f\n", valeur_obtenue_1);
