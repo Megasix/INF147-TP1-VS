@@ -235,7 +235,7 @@ void test_MATH_sin()
 	const double valeur_attendu_2 = 0.707;
 	double valeur_obtenue_2 = MATH_sin(x_2);
 
-	printf("\n\tTest no.2 - MATH_sin(%.1f)\n", x_2);
+	printf("\n\tTest no.2 - MATH_sin(PI / 4)\n");
 	printf("\t\tReponse attendue : %.3f\n", valeur_attendu_2);
 	printf("\t\tReponse obtenue  : %.3f\n", valeur_obtenue_2);
 
@@ -243,15 +243,15 @@ void test_MATH_sin()
 	const double valeur_attendu_3 = 1.0;
 	double valeur_obtenue_3 = MATH_sin(x_3);
 
-	printf("\n\tTest no.3 - MATH_sin(%.1f)\n", x_3);
+	printf("\n\tTest no.3 - MATH_sin(PI / 2)\n");
 	printf("\t\tReponse attendue : %.3f\n", valeur_attendu_3);
 	printf("\t\tReponse obtenue  : %.3f\n", valeur_obtenue_3);
 
-	const double x_4 = 3*PI/4;
+	const double x_4 = 3 * PI / 4;
 	const double valeur_attendu_4 = 0.707;
 	double valeur_obtenue_4 = MATH_sin(x_4);
 
-	printf("\n\tTest no.3 - MATH_sin(%.1f)\n", x_4);
+	printf("\n\tTest no.3 - MATH_sin(3 * PI / 4)\n");
 	printf("\t\tReponse attendue : %.3f\n", valeur_attendu_4);
 	printf("\t\tReponse obtenue  : %.3f\n", valeur_obtenue_4);
 }
@@ -272,7 +272,7 @@ void test_MATH_cos()
 	const double valeur_attendu_2 = 0.707;
 	double valeur_obtenue_2 = MATH_cos(x_2);
 
-	printf("\n\tTest no.2 - MATH_cos(%.1f)\n", x_2);
+	printf("\n\tTest no.2 - MATH_cos(PI / 4)\n");
 	printf("\t\tReponse attendue : %.3f\n", valeur_attendu_2);
 	printf("\t\tReponse obtenue  : %.3f\n", valeur_obtenue_2);
 
@@ -280,7 +280,7 @@ void test_MATH_cos()
 	const double valeur_attendu_3 = 0.0;
 	double valeur_obtenue_3 = MATH_cos(x_3);
 
-	printf("\n\tTest no.3 - MATH_cos(%.1f)\n", x_3);
+	printf("\n\tTest no.3 - MATH_cos(PI / 2)\n");
 	printf("\t\tReponse attendue : %.3f\n", valeur_attendu_3);
 	printf("\t\tReponse obtenue  : %.3f\n", valeur_obtenue_3);
 
@@ -288,7 +288,7 @@ void test_MATH_cos()
 	const double valeur_attendu_4 = 0.707;
 	double valeur_obtenue_4 = MATH_cos(x_4);
 
-	printf("\n\tTest no.3 - MATH_cos(%.1f)\n", x_4);
+	printf("\n\tTest no.3 - MATH_cos(3 * PI / 4)\n");
 	printf("\t\tReponse attendue : %.3f\n", valeur_attendu_4);
 	printf("\t\tReponse obtenue  : %.3f\n", valeur_obtenue_4);
 }
