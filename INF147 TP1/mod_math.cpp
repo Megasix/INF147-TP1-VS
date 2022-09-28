@@ -46,13 +46,13 @@ double MATH_sin(double x)
 	int k = 0;
 	
 	double sin_x = (MATH_puissance(-1, k) * MATH_puissance(x, 2 * k + 1)) / (MATH_factorielle(2 * k + 1));
-	double prochain_terme = (MATH_puissance(-1, k +1) * MATH_puissance(x, 2 * k + 2)) / (MATH_factorielle(2 * k + 2));
+	double prochain_terme = (MATH_puissance(-1, k + 1) * MATH_puissance(x, 2 * (k + 1) + 1)) / (MATH_factorielle(2 * (k + 1) + 1));
 
 	while (prochain_terme > MATH_EPSILON)
 	{
 		k++;
 		double sin_x = (MATH_puissance(-1, k) * MATH_puissance(x, 2 * k + 1)) / (MATH_factorielle(2 * k + 1));
-		double prochain_terme = (MATH_puissance(-1, k + 1) * MATH_puissance(x, 2 * k + 2)) / (MATH_factorielle(2 * k + 2));
+		double prochain_terme = (MATH_puissance(-1, k + 1) * MATH_puissance(x, 2 * (k + 1) + 1)) / (MATH_factorielle(2 * (k + 1) + 1));
 	}
 
 	return sin_x;
