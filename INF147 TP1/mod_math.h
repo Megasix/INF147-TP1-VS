@@ -13,4 +13,9 @@ void test_MATH_factorielle();
 
 void test_MATH_cos();
 
+double MATH_atan(double x);
+
+double MATH_cos(double x);
+
+double MATH_sin(double x);
 #endif
