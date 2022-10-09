@@ -20,13 +20,13 @@ void TRACEUR_ligne(int x_1, int y_1, int x_2, int y_2)
 	}
 
 	int delta_x = x_2 - x_1;
-	int delta_y = MATH_valeur_absolue(y_2 - y_1);
+	int delta_y = (y_2 - y_1);
 
-	if ((delta_x == 0) && (delta_y ==! 0)) //ligne horizontal
+	if (delta_x == 0) //ligne vertical
 	{
 		type_tracer = 1;
 	}
-	else if ((delta_x ==! 0) && (delta_y == 0)) //ligne vertical
+	else if (delta_y == 0) //ligne horizontal
 	{
 		type_tracer = 2;
 	}
@@ -35,35 +35,25 @@ void TRACEUR_ligne(int x_1, int y_1, int x_2, int y_2)
 		type_tracer = 3;
 	}
 
+	setcolor(WHITE);
+	line(x_1, y_1, x_2, y_2);
+	setcolor(LIGHTCYAN);
+	circle(x_1, y_1, RAYON);
+	circle(x_2, y_2, RAYON);
+
 	switch (type_tracer)
 	{
 	case 1 :
-		setcolor(WHITE);
-		line(x_1, y_1, x_2, y_2);
-		setcolor(LIGHTCYAN);
-		line(x_1, y_1 + RAYON, x_2, y_2 + RAYON);
-		line(x_1, y_1 - RAYON, x_2, y_2 - RAYON);
-		circle(x_1, y_1, RAYON);
-		circle(x_2, y_2, RAYON);
-		break;
-	case 2 :
-		setcolor(WHITE);
-		line(x_1, y_1, x_2, y_2);
-		setcolor(LIGHTCYAN);
 		line(x_1 + RAYON, y_1, x_2 + RAYON, y_2);
 		line(x_1 - RAYON, y_1, x_2 - RAYON, y_2);
-		circle(x_1, y_1, RAYON);
-		circle(x_2, y_2, RAYON);
+		break;
+	case 2 :
+		line(x_1, y_1 + RAYON, x_2, y_2 + RAYON);
+		line(x_1, y_1 - RAYON, x_2, y_2 - RAYON);
 		break;
 	case 3 :
-		int dx = MATH_cos(MATH_atan(delta_y / delta_x)) * RAYON;
-		int dy = MATH_sin(MATH_atan(delta_y / delta_x)) * RAYON;
-
-		setcolor(WHITE);
-		line(x_1, y_1, x_2, y_2);
-		setcolor(LIGHTCYAN);
-		circle(x_1, y_1, RAYON);
-		circle(x_2, y_2, RAYON);
+		double dx = (MATH_cos(MATH_atan(delta_y / delta_x))) * RAYON;
+		double dy = (MATH_sin(MATH_atan(delta_y / delta_x))) * RAYON;
 
 		if (delta_y < 0) //si vrai : ligne oblique montant
 		{
