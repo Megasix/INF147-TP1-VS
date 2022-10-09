@@ -11,7 +11,6 @@ void TRACEUR_initialiser_fenetre(void)
 
 void TRACEUR_ligne(int x_1, int y_1, int x_2, int y_2)
 {
-	const int rayon = 10;
 	int type_tracer = 0;
 
 	if (x_2 < x_1)
@@ -42,29 +41,29 @@ void TRACEUR_ligne(int x_1, int y_1, int x_2, int y_2)
 		setcolor(WHITE);
 		line(x_1, y_1, x_2, y_2);
 		setcolor(LIGHTCYAN);
-		line(x_1, y_1 + rayon, x_2, y_2 + rayon);
-		line(x_1, y_1 - rayon, x_2, y_2 - rayon);
-		circle(x_1, y_1, rayon);
-		circle(x_2, y_2, rayon);
+		line(x_1, y_1 + RAYON, x_2, y_2 + RAYON);
+		line(x_1, y_1 - RAYON, x_2, y_2 - RAYON);
+		circle(x_1, y_1, RAYON);
+		circle(x_2, y_2, RAYON);
 		break;
 	case 2 :
 		setcolor(WHITE);
 		line(x_1, y_1, x_2, y_2);
 		setcolor(LIGHTCYAN);
-		line(x_1 + rayon, y_1, x_2 + rayon, y_2);
-		line(x_1 - rayon, y_1, x_2 - rayon, y_2);
-		circle(x_1, y_1, rayon);
-		circle(x_2, y_2, rayon);
+		line(x_1 + RAYON, y_1, x_2 + RAYON, y_2);
+		line(x_1 - RAYON, y_1, x_2 - RAYON, y_2);
+		circle(x_1, y_1, RAYON);
+		circle(x_2, y_2, RAYON);
 		break;
 	case 3 :
-		int dx = cos(MATH_atan(delta_y / delta_x)) * rayon;
-		int dy = sin(MATH_atan(delta_y / delta_x)) * rayon;
+		int dx = cos(MATH_atan(delta_y / delta_x)) * RAYON;
+		int dy = sin(MATH_atan(delta_y / delta_x)) * RAYON;
 
 		setcolor(WHITE);
 		line(x_1, y_1, x_2, y_2);
 		setcolor(LIGHTCYAN);
-		circle(x_1, y_1, rayon);
-		circle(x_2, y_2, rayon);
+		circle(x_1, y_1, RAYON);
+		circle(x_2, y_2, RAYON);
 
 		if (delta_y < 0) //si vrai : ligne oblique montant
 		{
@@ -80,4 +79,5 @@ void TRACEUR_ligne(int x_1, int y_1, int x_2, int y_2)
 	}
 		
 
-/* À remplir */
+
+}
