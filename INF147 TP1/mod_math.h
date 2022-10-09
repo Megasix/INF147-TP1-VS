@@ -12,4 +12,5 @@ void test_MATH_valeur_absolue();
 void test_MATH_factorielle();
 
 void test_MATH_cos();
+
 #endif
