@@ -18,4 +18,6 @@ double MATH_atan(double x);
 double MATH_cos(double x);
 
 double MATH_sin(double x);
+
+double MATH_valeur_absolue(double x);
 #endif
