@@ -48,14 +48,11 @@ void TRACEUR_ligne(int x_1, int y_1, int x_2, int y_2)
 	line(x_1 + x_offset, y_1 + y_offset, x_2 + x_offset, y_2 + y_offset);
 
 	// Limite inferieur du faisceau laser (LIGHTCYAN)
-	setcolor(LIGHTCYAN);
 	line(x_1 - x_offset, y_1 - y_offset, x_2 - x_offset, y_2 - y_offset);
 
 	// Un cercle de rayon r qui represente le point de depart (LIGHTCYAN)
-	setcolor(LIGHTCYAN);
 	circle(x_1, y_1, RAYON);
 
 	// Un cercle de rayon r qui represente le point de fin (LIGHTCYAN)
-	setcolor(LIGHTCYAN);
 	circle(x_2, y_2, RAYON);
 }
