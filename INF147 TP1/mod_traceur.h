@@ -8,15 +8,17 @@
 #define DIM_HAUTEUR 750	
 #define DIM_LARGEUR 750
 
-// Tolérance en pixels pour le graphique
+// TolÃ©rance en pixels pour le graphique
 #define TRACEUR_EPSILON 1
+
+const int RAYON = 10;
 
 /*
  TRACEUR_INITIALISER_FENETRE
 
-	Initialise la fenêtre du tracé avec les dimensions spécifiées par les constantes DIM_HAUTEUR et DIM_LARGEUR.
+	Initialise la fenÃªtre du tracÃ© avec les dimensions spÃ©cifiÃ©es par les constantes DIM_HAUTEUR et DIM_LARGEUR.
 
- PARAMÈTRES :
+ PARAMÃˆTRES :
 
 	 Aucuns.
 
@@ -26,6 +28,6 @@
 */
 void TRACEUR_initialiser_fenetre(void);
 
-/* À remplir */
+/* Ã€ remplir */
 
 #endif
