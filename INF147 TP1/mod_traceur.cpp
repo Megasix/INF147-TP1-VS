@@ -10,11 +10,27 @@ void TRACEUR_ligne(int x_1, int y_1, int x_2, int y_2)
 {
 	int delta_x = x_2 - x_1;
 	int delta_y = y_2 - y_1;
-	double angle = 0;
-	if(delta_x != 0)
-		angle = MATH_atan((double)delta_y / delta_x) + MATH_PI / 2;
-	int x_offset = MATH_cos(angle) * RAYON;
-	int y_offset = MATH_sin(angle) * RAYON;
+	int x_offset;
+	int y_offset;
+
+	if (delta_x == 0 && delta_y != 0)
+	{
+		x_offset = RAYON;
+		y_offset = 0;
+	}
+	else if (delta_x != 0 && delta_y == 0)
+	{
+		x_offset = 0;
+		y_offset = RAYON;
+	}
+	else
+	{
+		double angle = 0;
+		if (delta_x != 0)
+			angle = MATH_atan((double)delta_y / delta_x) + MATH_PI / 2;
+		x_offset = MATH_cos(angle) * RAYON;
+		y_offset = MATH_sin(angle) * RAYON;
+	}
 
 	// Chemin de l'outil (WHITE)
 	setcolor(WHITE);
