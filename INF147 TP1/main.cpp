@@ -77,7 +77,7 @@ Retour :
 
 		int x = 0;
 		int y = 0;
-		bool laserON = 0;
+		bool etat_laser = 0;
 		
 		commande commande_courante;
 		opcode code_operation;
@@ -93,13 +93,13 @@ Retour :
 			switch (code_operation)
 			{
 			case INDICE_LZON:
-				laserON = 1;
+				etat_laser = 1;
 				break;
 			case INDICE_LZOFF:
-				laserON = 0;
+				etat_laser = 0;
 				break;
 			case INDICE_DPLC:
-				if (laserON)
+				if (etat_laser)
 				{
 					TRACEUR_ligne(x, y, operande_1, operande_2);
 				}
@@ -107,7 +107,7 @@ Retour :
 				y = operande_2;
 				break;
 			case INDICE_DONE:
-				laserON = 0;
+				etat_laser = 0;
 				x = 0;
 				y = 0;
 				break;
