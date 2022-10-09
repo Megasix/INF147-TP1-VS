@@ -3,6 +3,7 @@
 #define EPSILON 0.0001
 #define PI 3.14159265
 
+//fonction puissance de Teano
 double MATH_puissance(double x, int n) {
     double xn = 1;
 
@@ -39,6 +40,23 @@ double MATH_cos(double x) {
     }
 
     return cos_x;
+}
+
+//fonction atan de Philippe
+double MATH_atan(double x)
+{
+    double atan_x = 0;
+    double prochain_terme = 0;
+    int k = 0;
+
+    do
+    {
+        atan_x += (MATH_puissance(-1, k) * MATH_puissance(x, 2 * k + 1)) / (2 * k + 1);
+        k++;
+        prochain_terme = MATH_puissance(-1, k) * MATH_puissance(x, 2 * k + 1) / (2 * k + 1);
+    } while (MATH_valeur_absolue(prochain_terme) > EPSILON);
+
+    return atan_x;
 }
 
 void test_MATH_valeur_absolue() {
