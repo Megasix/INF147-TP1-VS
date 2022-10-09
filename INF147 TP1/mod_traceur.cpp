@@ -1,6 +1,6 @@
 #include "mod_traceur.h"
 
-void TRACEUR_initialiser_fenetre(void)
+void TRACEUR_initialiser_fenetre()
 {
 	initwindow(DIM_LARGEUR, DIM_HAUTEUR);
 }

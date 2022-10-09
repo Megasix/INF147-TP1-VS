@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.23"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "INF147_TP1_VS",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "INF147_TP1_VS::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-INF147_TP1_VS-Debug-f558bde549753c8d20dc.json",
+					"name" : "INF147_TP1_VS",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/barry/Library/Mobile Documents/com~apple~CloudDocs/Cours/Automne 2022/INF-147/Projects/INF147-TP1-VS/cmake-build-debug",
+		"source" : "/Users/barry/Library/Mobile Documents/com~apple~CloudDocs/Cours/Automne 2022/INF-147/Projects/INF147-TP1-VS"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}
