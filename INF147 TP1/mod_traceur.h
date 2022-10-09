@@ -11,6 +11,8 @@
 // Tolérance en pixels pour le graphique
 #define TRACEUR_EPSILON 1
 
+#define R_FAISCEAU 10
+
 /*
  TRACEUR_INITIALISER_FENETRE
 
@@ -24,8 +26,9 @@
 
 	Aucune.
 */
-void TRACEUR_initialiser_fenetre(void);
+void TRACEUR_initialiser_fenetre();
 
+void TRACEUR_ligne(int x_1, int y_1, int x_2, int y_2);
 /* À remplir */
 
 #endif
