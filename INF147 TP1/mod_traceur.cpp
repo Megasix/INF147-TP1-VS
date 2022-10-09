@@ -20,7 +20,7 @@ void TRACEUR_ligne(int x_1, int y_1, int x_2, int y_2)
 	}
 
 	int delta_x = x_2 - x_1;
-	int delta_y = y_2 - y_1;
+	int delta_y = MATH_valeur_absolue(y_2 - y_1);
 
 	if ((delta_x == 0) && (delta_y ==! 0)) //ligne horizontal
 	{
@@ -56,8 +56,8 @@ void TRACEUR_ligne(int x_1, int y_1, int x_2, int y_2)
 		circle(x_2, y_2, RAYON);
 		break;
 	case 3 :
-		int dx = cos(MATH_atan(delta_y / delta_x)) * RAYON;
-		int dy = sin(MATH_atan(delta_y / delta_x)) * RAYON;
+		int dx = MATH_cos(MATH_atan(delta_y / delta_x)) * RAYON;
+		int dy = MATH_sin(MATH_atan(delta_y / delta_x)) * RAYON;
 
 		setcolor(WHITE);
 		line(x_1, y_1, x_2, y_2);
