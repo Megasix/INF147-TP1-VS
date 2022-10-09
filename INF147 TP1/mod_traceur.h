@@ -11,7 +11,7 @@
 // Tolérance en pixels pour le graphique
 #define TRACEUR_EPSILON 1
 
-const int RAYON = 10;
+#define RAYON = 10;
 
 /*
  TRACEUR_INITIALISER_FENETRE
