@@ -74,10 +74,9 @@ Retour :
 	}
 
 #else
-
+#include "mod_outils.h"
 	int main(void)
 	{
-
 		#if TESTS_BITS
 			test_BITS_obtenir();
 			test_BITS_basculer();
