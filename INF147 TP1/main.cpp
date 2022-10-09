@@ -14,7 +14,7 @@ Auteur(e) :
 ****************************************************************************************/
 
 // Mode pour les tests unitaires
-#define TESTS 1
+#define TESTS 0
 
 // Librairies utilisées par l'application an mode normal
 #if !TESTS
@@ -27,7 +27,7 @@ Auteur(e) :
 #define TESTS_COM     0
 #define TESTS_MATH    0
 #define TESTS_CNC     0
-#define TESTS_TRACEUR 1
+#define TESTS_TRACEUR 0
 
 // Librairies utilisées par l'application en mode test
 #if TESTS && TESTS_BITS
@@ -40,6 +40,10 @@ Auteur(e) :
 
 #if TESTS && TESTS_MATH
 	#include "mod_math.h"
+#endif
+
+#if TESTS && TESTS_CNC
+	#include "mod_cnc.h"
 #endif
 
 #if TESTS && TESTS_TRACEUR
@@ -69,8 +73,46 @@ Retour :
 
 	int main()
 	{
+		int x = 0;
+		int y = 0;
+		bool laserON = 0;
+		
+		commande commande_courante;
+		opcode code_operation;
+		operande operande_1;
+		operande operande_2;
 
-		/* À remplir */
+		TRACEUR_initialiser_fenetre();
+
+		do
+		{
+			commande_courante = CNC_prochaine_commande();
+			code_operation = COM_get_opcode(commande_courante);
+			operande_1 = COM_get_operande_1(commande_courante);
+			operande_2 = COM_get_operande_2(commande_courante);
+
+			switch (code_operation)
+			{
+			case INDICE_LZON:
+				laserON = 1;
+				break;
+			case INDICE_LZOFF:
+				laserON = 0;
+				break;
+			case INDICE_DPLC:
+				if (laserON)
+				{
+					TRACEUR_ligne(x, y, operande_1, operande_2);
+				}
+				x = operande_1;
+				y = operande_2;
+				break;
+			}
+		} while (code_operation != INDICE_DONE);
+
+		laserON = 0;
+		x = 0;
+		y = 0;
 
 		system("pause");
 		return EXIT_SUCCESS;
