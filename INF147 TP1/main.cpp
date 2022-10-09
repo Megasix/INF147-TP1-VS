@@ -16,20 +16,20 @@ Auteur(e) :
 // Mode pour les tests unitaires
 #define TESTS 1
 
-// Librairies utilisées par l'application an mode normal
+// Librairies utilisï¿½es par l'application an mode normal
 #if !TESTS
 	#include "mod_traceur.h"
 	#include "mod_cnc.h"
 #endif
 
-// (Dés)activation des tests pour les différents modules
-#define TESTS_BITS    1
+// (Dï¿½s)activation des tests pour les diffï¿½rents modules
+#define TESTS_BITS    0
 #define TESTS_COM     0
 #define TESTS_MATH    0
 #define TESTS_CNC     0
-#define TESTS_TRACEUR 0
+#define TESTS_TRACEUR 1
 
-// Librairies utilisées par l'application en mode test
+// Librairies utilisï¿½es par l'application en mode test
 #if TESTS && TESTS_BITS
 	#include "mod_bits.h"
 #endif
@@ -42,7 +42,11 @@ Auteur(e) :
 	#include "mod_math.h"
 #endif
 
-// (Dés)activation de l'exemple de l'Annexe A
+#if TESTS && TESTS_TRACEUR
+#include "mod_traceur.h"
+#endif
+
+// (Dï¿½s)activation de l'exemple de l'Annexe A
 #define TUTORIEL_GRAPHICS 0
 
 /****************************************************************************************
@@ -66,7 +70,7 @@ Retour :
 	int main()
 	{
 
-		/* À remplir */
+		/* ï¿½ remplir */
 
 		system("pause");
 		return EXIT_SUCCESS;
