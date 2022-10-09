@@ -42,6 +42,24 @@ double MATH_cos(double x) {
     return cos_x;
 }
 
+//fonction sin de Teano
+double MATH_sin(double x)
+{
+    int k = 0;
+
+    double sin_x = (MATH_puissance(-1, k) * MATH_puissance(x, 2 * k + 1)) / (MATH_factorielle(2 * k + 1));
+    double prochain_terme = (MATH_puissance(-1, k + 1) * MATH_puissance(x, 2 * (k + 1) + 1)) / (MATH_factorielle(2 * (k + 1) + 1));
+
+    while (MATH_valeur_absolue(prochain_terme) > EPSILON)
+    {
+        k++;
+        sin_x += (MATH_puissance(-1, k) * MATH_puissance(x, 2 * k + 1)) / (MATH_factorielle(2 * k + 1));
+        prochain_terme = (MATH_puissance(-1, k + 1) * MATH_puissance(x, 2 * (k + 1) + 1)) / (MATH_factorielle(2 * (k + 1) + 1));
+    }
+
+    return sin_x;
+}
+
 //fonction atan de Philippe
 double MATH_atan(double x)
 {
