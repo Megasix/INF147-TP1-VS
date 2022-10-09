@@ -3,6 +3,13 @@
 
 #include <stdio.h>
 
+#define OPCODE_BIT_DEBUT			1
+#define OPCODE_BIT_FIN				3
+#define OPERANDE_1_BIT_DEBUT		4
+#define OPERANDE_1_BIT_FIN			13
+#define OPERANDE_2_BIT_DEBUT		14
+#define OPERANDE_2_BIT_FIN			23
+
 /*
  COM_GET_OPCODE
 

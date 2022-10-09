@@ -5,19 +5,19 @@
 
 unsigned int COM_get_opcode(unsigned int une_commande)
 {
-	unsigned int opcode = BITS_extraire(une_commande, 1, 3);
+	unsigned int opcode = BITS_extraire(une_commande, OPCODE_BIT_DEBUT, OPCODE_BIT_FIN);
 	return opcode;
 }
 
 unsigned int COM_get_operande_1(unsigned int une_commande)
 {
-	unsigned int operande_1 = BITS_extraire(une_commande, 4, 13);
+	unsigned int operande_1 = BITS_extraire(une_commande, OPERANDE_1_BIT_DEBUT, OPERANDE_1_BIT_FIN);
 	return operande_1;
 }
 
 unsigned int COM_get_operande_2(unsigned int une_commande)
 {
-	unsigned int operande_2 = BITS_extraire(une_commande, 14, 23);
+	unsigned int operande_2 = BITS_extraire(une_commande, OPERANDE_2_BIT_DEBUT, OPERANDE_2_BIT_FIN);
 	return operande_2;
 }
 
