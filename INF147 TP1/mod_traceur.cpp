@@ -79,8 +79,8 @@ void TRACEUR_ligne(int x_1, int y_1, int x_2, int y_2)
 			dx = cos(MATH_atan(delta_y / delta_x)) * rayon;
 			dy = sin(MATH_atan(delta_y / delta_x)) * rayon;
 
-			line(x_1 + dx, y_1 - dy, x_2 + dx, y_2 - dy);
-			line(x_1 - dx, y_1 + dy, x_2 - dx, y_2 + dy);
+			line(x_1 + dx, y_1 + dy, x_2 + dx, y_2 + dy);
+			line(x_1 - dx, y_1 - dy, x_2 - dx, y_2 - dy);
 		}
 		break;
 	}
