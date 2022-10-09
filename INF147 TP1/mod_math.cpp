@@ -23,11 +23,7 @@ double MATH_puissance(double x, int n)
 
 double MATH_valeur_absolue(double x)
 {
-	double abs_x = x;
-
-	if (x < 0)
-		abs_x = -x;
-
+	double abs_x = (x < 0) ? -x : x;
 	return abs_x;
 }
 
