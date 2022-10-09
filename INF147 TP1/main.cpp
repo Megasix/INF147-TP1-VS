@@ -23,11 +23,11 @@ Auteur(e) :
 #endif
 
 // (Dés)activation des tests pour les différents modules
-#define TESTS_BITS    1
-#define TESTS_COM     1
-#define TESTS_MATH    1
+#define TESTS_BITS    0
+#define TESTS_COM     0
+#define TESTS_MATH    0
 #define TESTS_CNC     0
-#define TESTS_TRACEUR 0
+#define TESTS_TRACEUR 1
 
 // Librairies utilisées par l'application en mode test
 #if TESTS && TESTS_BITS
@@ -40,6 +40,10 @@ Auteur(e) :
 
 #if TESTS && TESTS_MATH
 	#include "mod_math.h"
+#endif
+
+#if TESTS && TESTS_TRACEUR
+	#include "mod_traceur.h"
 #endif
 
 // (Dés)activation de l'exemple de l'Annexe A
