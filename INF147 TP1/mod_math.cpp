@@ -1,14 +1,36 @@
+/*********************************************************************
+Par : Tous
+Date : Octobre 2022
+Ce module contient les fonctions qui sont utilisé pour créer le graphique dans mod_traceur
+On y retrouve les sous-programmes suivants :
+- MATH_puissance : Eleve une valeur x a une puissance n donnee.
+- MATH_valeur_absolue : Extrait la valeur absolue d'une valeur donnée.
+- MATH_racine_carree : Extrait la racine carrée d'un rationnel.
+- MATH_factorielle : Calcule la factorielle d'un entier donné.
+- MATH_sin : Calcule le sinus d'un angle donné en radians.
+- MATH_cos : Calcule le cosinus d'un angle donné en radians.
+- MATH_atan : Calcule l'arc tangente d'un rationnel donné.
+- test_MATH_puissance : Suite de tests unitaires pour la fonction MATH_puissance.
+- test_MATH_valeur_absolue : Suite de tests unitaires pour la fonction MATH_valeur_absolue.
+- test_MATH_racine_carree : Suite de tests unitaires pour la fonction MATH_racine_carree.
+- test_MATH_factorielle : Suite de tests unitaires pour la fonction MATH_factorielle.
+- test_MATH_sin : Suite de tests unitaires pour la fonction MATH_sin.
+- test_MATH_cos : Suite de tests unitaires pour la fonction MATH_cos.
+- test_MATH_atan : Suite de tests unitaires pour la fonction MATH_atan.
+*********************************************************************/
 #include "mod_math.h"
 
-
+// Eleve une valeur x a une puissance n donnee.
 double MATH_puissance(double x, int n)
 {
-	double xn = 1;
+	double xn = 1; // Variable x facteur n
 
+	// On veut seulement calculer la puissance si le facteur est plus grand que 0, sinon on retourne 1
 	if (n > 0)
 	{
 		xn = x;
-		for (int i = 1; i < n; i++)
+		// On multiplie la valeur de x "n" fois
+		for (int i = 1; i < n; i++) 
 		{
 			xn *= x;
 		}
@@ -17,86 +39,98 @@ double MATH_puissance(double x, int n)
 	return xn;
 }
 
+// Extrait la valeur absolue d'une valeur donnée.
 double MATH_valeur_absolue(double x)
 {
+	// Si la valeur est plus petite que zero, on applique un double negatif pour avoir la valeur positive, sinon on garde x
 	double abs_x = (x < 0) ? -x : x;
+
 	return abs_x;
 }
 
+// Extrait la racine carrée d'un rationnel.
 double MATH_racine_carree(double x)
 {
-	double racine_carree = x;
-	double r_precedent = 0;
+	double racine_carree = x; // La racine carree courante
+	double racine_precedent = 0; // La racine carree precedente 
 
-	while (MATH_valeur_absolue(racine_carree - r_precedent) > MATH_EPSILON)
+	while (MATH_valeur_absolue(racine_carree - racine_precedent) > MATH_EPSILON)
 	{
-		r_precedent = racine_carree;
-		racine_carree = (r_precedent + (x / r_precedent)) / 2;
+		racine_precedent = racine_carree; // Assignation de la racine courante dans la racine precedente 
+		racine_carree = (racine_precedent + (x / racine_precedent)) / 2; // algorithme de Babylone
 	}
 
 	return racine_carree;
 }
 
+// Calcule la factorielle d'un entier donné.
 unsigned int MATH_factorielle(unsigned int n)
 {
-	unsigned int fact_x = 1;
+	unsigned int fact_n = 1; // Initialisation de la factorielle de n
 
-	for (unsigned int i = 2; i <= n ; i++)
+	for (unsigned int i = 2; i <= n ; i++)  
 	{
-		fact_x *= i;
+		fact_n *= i; // Multiplication de la factorielle courante par le nombre incremente "i"
 	}
 
-	return fact_x;
+	return fact_n;
 }
 
+// Calcule le sinus d'un angle donné en radians.
 double MATH_sin(double x)
 {
-	double sin_x = 0;
-	double prochain_terme = 0;
-	int k = 0;
+	double sin_x = 0; // Initialisation du sinus de x
+	double prochain_terme = 0; // Initialisation du prochain terme pour la boucle
+	int k = 0; // Initialisation du compteur pour la boucle
 
+	// Boucle qui reproduit l'approximation polynômiale donnée par la série de Taylor
 	do
 	{
 		sin_x += (MATH_puissance(-1, k) * MATH_puissance(x, 2 * k + 1)) / MATH_factorielle(2 * k + 1 );
 		k++;
 		prochain_terme = MATH_puissance(-1, k) * MATH_puissance(x, 2 * k + 1) / MATH_factorielle(2 * k + 1);
-	} while (MATH_valeur_absolue(prochain_terme) > MATH_EPSILON);
+	} while (MATH_valeur_absolue(prochain_terme) > MATH_EPSILON); // Vérification que le prochain terme est plus grand que 1/10^4
 
 	return sin_x;
 }
 
+// Calcule le cosinus d'un angle donné en radians.
 double MATH_cos(double x)
 {
-	double cos_x = 0;
-	double prochain_terme = 0;
-	int k = 0;
+	double cos_x = 0; // Initialisation du cosinus de x
+	double prochain_terme = 0;  // Initialisation du prochain terme pour la boucle
+	int k = 0; // Initialisation du compteur pour la boucle
 
+	// Boucle qui reproduit l'approximation polynômiale donnée par la série de Taylor
 	do
 	{
 		cos_x += (MATH_puissance(-1, k) * MATH_puissance(x, 2 * k)) / MATH_factorielle(2 * k);
 		k++;
 		prochain_terme = MATH_puissance(-1, k) * MATH_puissance(x, 2 * k) / MATH_factorielle(2 * k);
-	} while (MATH_valeur_absolue(prochain_terme) > MATH_EPSILON);
+	} while (MATH_valeur_absolue(prochain_terme) > MATH_EPSILON); // Vérification que le prochain terme est plus grand que 1/10^4
 
 	return cos_x;
 }
 
+// Calcule l'arc tangente d'un rationnel donné.
 double MATH_atan(double x)
 {
-	double atan_x = 0;
-	double prochain_terme = 0;
-	int k = 0;
+	double atan_x = 0; // Initialisation de l'actangente de x
+	double prochain_terme = 0; // Initialisation du prochain terme pour la boucle
+	int k = 0; // Initialisation du compteur pour la boucle
 
+	// Boucle qui reproduit l'approximation polynômiale donnée par la série de Taylor
 	do
 	{
 		atan_x += (MATH_puissance(-1, k) * MATH_puissance(x, 2 * k + 1)) / (2 * k + 1);
 		k++;
 		prochain_terme = MATH_puissance(-1, k) * MATH_puissance(x, 2 * k + 1) / (2 * k + 1);
-	} while (MATH_valeur_absolue(prochain_terme) > MATH_EPSILON);
+	} while (MATH_valeur_absolue(prochain_terme) > MATH_EPSILON); // Vérification que le prochain terme est plus grand que 1/10^4
 
 	return atan_x;
 }
 
+// uite de tests unitaires pour la fonction MATH_puissance.
 void test_MATH_puissance()
 {
 	printf("\nTEST_MATH_PUISSANCE\n");
@@ -147,6 +181,7 @@ void test_MATH_puissance()
 	printf("\t\tReponse obtenue  : %.3f\n", valeur_obtenue_5);
 }
 
+// Suite de tests unitaires pour la fonction MATH_valeur_absolue.
 void test_MATH_valeur_absolue()
 {
 	printf("\nTEST_MATH_VALEUR_ABSOLUE\n");
@@ -176,6 +211,7 @@ void test_MATH_valeur_absolue()
 	printf("\t\tReponse obtenue  : %.3f\n", valeur_obtenue_3);
 }
 
+//Suite de tests unitaires pour la fonction MATH_racine_carree.
 void test_MATH_racine_carree()
 {
 	printf("\nTEST_MATH_RACINE_CARREE\n");
@@ -197,6 +233,7 @@ void test_MATH_racine_carree()
 	printf("\t\tReponse obtenue  : %.3f\n", valeur_obtenue_2);
 }
 
+// Suite de tests unitaires pour la fonction MATH_factorielle.
 void test_MATH_factorielle()
 {
 	printf("\nTEST_MATH_FACTORIELLE\n");
@@ -232,6 +269,7 @@ void test_MATH_factorielle()
 	printf("\t\tReponse obtenue  : %u\n", valeur_obtenue_3);
 }
 
+// Suite de tests unitaires pour la fonction MATH_sin.
 void test_MATH_sin()
 {
 	printf("\nTEST_MATH_SIN\n");
@@ -269,6 +307,7 @@ void test_MATH_sin()
 	printf("\t\tReponse obtenue  : %.3f\n", valeur_obtenue_4);
 }
 
+// Suite de tests unitaires pour la fonction MATH_cos.
 void test_MATH_cos()
 {
 	printf("\nTEST_MATH_COS\n");
@@ -306,6 +345,7 @@ void test_MATH_cos()
 	printf("\t\tReponse obtenue  : %.3f\n", valeur_obtenue_4);
 }
 
+// Suite de tests unitaires pour la fonction MATH_atan.
 void test_MATH_atan()
 {
 	printf("\nTEST_MATH_ATAN\n");
@@ -326,3 +366,4 @@ void test_MATH_atan()
 	printf("\t\tReponse attendue : %.3f\n", valeur_attendu_2);
 	printf("\t\tReponse obtenue  : %.3f\n", valeur_obtenue_2);
 }
+
