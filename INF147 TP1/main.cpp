@@ -89,34 +89,34 @@ Retour :
 		int y = 0; 								// position de la tete de la CNC en ordonnees
 		bool etat_laser = 0;							// etat de fonctionnement de la tete laser de la CNC 0=OFF, 1=ON
 		
-		commande commande_courante;
-		opcode code_operation;
-		operande operande_1;
-		operande operande_2;
+		commande commande_courante;						// declaration de commande_courante, cette variable nous serviras notamment a verifier si l'on a recu une commande "CLOSE"
+		opcode code_operation;							// declaration de code_operation, cette variable nous indique quelle action nous devons effectuer
+		operande operande_1;							// declaration de operande_1, cette variable correspond a la premiere operande de la commande recue
+		operande operande_2;							// declaration de operande_2, cette variable correspond a la deuxieme operande de la commande recue
 
-		while ((commande_courante = CNC_prochaine_commande()) != CLOSE)
+		while ((commande_courante = CNC_prochaine_commande()) != CLOSE)		// tant que la commande_courante n'est pas une instruction CLOSE, on continue
 		{
-			code_operation = COM_get_opcode(commande_courante);
+			code_operation = COM_get_opcode(commande_courante);		// assignation des valeur aux variables correspondantes
 			operande_1 = COM_get_operande_1(commande_courante);
 			operande_2 = COM_get_operande_2(commande_courante);
 
-			switch (code_operation)
+			switch (code_operation)						
 			{
-			case INDICE_LZON:
+			case INDICE_LZON:						// si code_operation est egal a INDICE_LZON on active le lazer
 				etat_laser = 1;
 				break;
-			case INDICE_LZOFF:
+			case INDICE_LZOFF:						// si code_operation est egal a INDICE_LZOFF on desactive le lazer
 				etat_laser = 0;
 				break;
-			case INDICE_DPLC:
+			case INDICE_DPLC:						// si code_operation est egal a INDICE_DPLC on deplace la tete du lazer aux coordonnee x et y
 				if (etat_laser)
 				{
-					TRACEUR_ligne(x, y, operande_1, operande_2);
+					TRACEUR_ligne(x, y, operande_1, operande_2);	// si etat_laser est ON (1), on affiche le trace dans la fenetre
 				}
 				x = operande_1;
 				y = operande_2;
 				break;
-			case INDICE_DONE:
+			case INDICE_DONE:						// si code_operation est egal a INDICE_DONE on deplace la tete du lazer a la position initiale (x=0, y=0) et on desactive le lazer.
 				etat_laser = 0;
 				x = 0;
 				y = 0;
