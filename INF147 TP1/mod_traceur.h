@@ -8,17 +8,21 @@
 #define DIM_HAUTEUR 750	
 #define DIM_LARGEUR 750
 
-// Tolérance en pixels pour le graphique
+// TolÃ©rance en pixels pour le graphique
 #define TRACEUR_EPSILON 1
 
 #define RAYON 10
+#define LIGNE_VERTICAL 1
+#define LIGNE_HORIZONTAL 2
+#define LIGNE OBLIQUE 3
+
 
 /*
  TRACEUR_INITIALISER_FENETRE
 
-	Initialise la fenêtre du tracé avec les dimensions spécifiées par les constantes DIM_HAUTEUR et DIM_LARGEUR.
+	Initialise la fenÃªtre du tracÃ© avec les dimensions spÃ©cifiÃ©es par les constantes DIM_HAUTEUR et DIM_LARGEUR.
 
- PARAMÈTRES :
+ PARAMÃˆTRES :
 
 	 Aucuns.
 
@@ -31,7 +35,7 @@ void TRACEUR_initialiser_fenetre(void);
 /*
 * TRACEUR_LIGNE
  
-	Trace une ligne entre deux points donnés avec les contours de l'outil
+	Trace une ligne entre deux points donnÃ©s avec les contours de l'outil
 
  PARAMETRES :
 
