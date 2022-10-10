@@ -19,6 +19,10 @@ On y retrouve les sous-programmes suivants :
 #include "graphics.h"
 #include "mod_math.h"
 
+/*****************************************************************************************
+*                                 FONCTIONS PUBLIQUES                                    *
+*****************************************************************************************/
+
 void TRACEUR_initialiser_fenetre(void)
 {
 	initwindow(DIM_LARGEUR, DIM_HAUTEUR);

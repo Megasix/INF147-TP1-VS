@@ -20,6 +20,10 @@ On y retrouve les sous-programmes suivants :
 #include "graphics.h"
 #pragma comment(lib, "graphics")
 
+/*****************************************************************************************
+*                                      CONSTANTES                                        *
+*****************************************************************************************/
+
 // Dimension du graphique en pixels
 #define DIM_HAUTEUR 750	
 #define DIM_LARGEUR 750
@@ -38,6 +42,10 @@ On y retrouve les sous-programmes suivants :
 
 //valeur associée à une ligne oblique
 #define LIGNE_OBLIQUE 3
+
+/*****************************************************************************************
+*                                 FONCTIONS PUBLIQUES                                    *
+*****************************************************************************************/
 
 /*
  TRACEUR_INITIALISER_FENETRE

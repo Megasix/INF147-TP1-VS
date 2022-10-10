@@ -26,6 +26,10 @@ On y retrouve les sous-programmes suivants :
 
 #include "mod_math.h"
 
+/*****************************************************************************************
+*                                 FONCTIONS PUBLIQUES                                    *
+*****************************************************************************************/
+
 // Eleve une valeur x a une puissance n donnee.
 double MATH_puissance(double x, int n)
 {
