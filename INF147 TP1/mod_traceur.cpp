@@ -1,14 +1,19 @@
-/*********************************************************************
-Par : Tous
+/*****************************************************************************************
+Auteurs :	Barry Lawson
+			Philippe Marineau
+			Jean-Philippe Portant
+			Teano Rocha
 Date : Octobre 2022
+
 Ce module permet de découper les commandes pour l'analyse.
+
 On y retrouve les sous-programmes suivants :
- - TRACEUR_initialiser_fenetre : Cette fonction initialise la fenêtre
- 				 dans laquelle le tracé sera effectué
- - TRACEUR_ligne :		 Cette fonction se charge du tracé des
- 				 lignes en fonction des coordonnées
-				 entrée.
-*********************************************************************/
+	- TRACEUR_initialiser_fenetre : Cette fonction initialise la fenêtre dans laquelle le
+									tracé sera effectué
+	- TRACEUR_ligne : Cette fonction se charge du tracé des lignes en fonction des
+					  coordonnées entrée.
+*****************************************************************************************/
+
 #include "mod_traceur.h"
 #include "mod_outils.h"
 #include "graphics.h"

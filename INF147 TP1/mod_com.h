@@ -1,3 +1,21 @@
+/*****************************************************************************************
+Auteurs :	Barry Lawson
+			Philippe Marineau
+			Jean-Philippe Portant
+			Teano Rocha
+Date : Octobre 2022
+
+Ce module permet de découper les commandes pour l'analyse.
+
+On y retrouve les sous-programmes suivants :
+	 - COM_get_opcode : Extrait le code d'opération d'une commande.
+	 - COM_get_operande_1 : Extrait le premier opérande d'une commande.
+	 - COM_get_operande_2 : Extrait le deuxième opérande d'une commande.
+	 - test_COM_get_opcode : Test unitaire pour la fonction COM_get_opcode.
+	 - test_COM_get_operande_1 : Test unitaire pour la fonction COM_get_operande_1.
+	 - test_COM_get_operande_2 : Test unitaire pour la fonction COM_get_operande_2.
+*****************************************************************************************/
+
 #ifndef __MOD_COM__
 #define __MOD_COM__
 

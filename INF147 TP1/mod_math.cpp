@@ -1,23 +1,29 @@
-/*********************************************************************
-Par : Tous
+/*****************************************************************************************
+Auteurs :	Barry Lawson
+			Philippe Marineau
+			Jean-Philippe Portant
+			Teano Rocha
 Date : Octobre 2022
+
 Ce module contient les fonctions qui sont utilisé pour créer le graphique dans mod_traceur
+
 On y retrouve les sous-programmes suivants :
-- MATH_puissance : Eleve une valeur x a une puissance n donnee.
-- MATH_valeur_absolue : Extrait la valeur absolue d'une valeur donnée.
-- MATH_racine_carree : Extrait la racine carrée d'un rationnel.
-- MATH_factorielle : Calcule la factorielle d'un entier donné.
-- MATH_sin : Calcule le sinus d'un angle donné en radians.
-- MATH_cos : Calcule le cosinus d'un angle donné en radians.
-- MATH_atan : Calcule l'arc tangente d'un rationnel donné.
-- test_MATH_puissance : Suite de tests unitaires pour la fonction MATH_puissance.
-- test_MATH_valeur_absolue : Suite de tests unitaires pour la fonction MATH_valeur_absolue.
-- test_MATH_racine_carree : Suite de tests unitaires pour la fonction MATH_racine_carree.
-- test_MATH_factorielle : Suite de tests unitaires pour la fonction MATH_factorielle.
-- test_MATH_sin : Suite de tests unitaires pour la fonction MATH_sin.
-- test_MATH_cos : Suite de tests unitaires pour la fonction MATH_cos.
-- test_MATH_atan : Suite de tests unitaires pour la fonction MATH_atan.
-*********************************************************************/
+	- MATH_puissance : Eleve une valeur x a une puissance n donnee.
+	- MATH_valeur_absolue : Extrait la valeur absolue d'une valeur donnée.
+	- MATH_racine_carree : Extrait la racine carrée d'un rationnel.
+	- MATH_factorielle : Calcule la factorielle d'un entier donné.
+	- MATH_sin : Calcule le sinus d'un angle donné en radians.
+	- MATH_cos : Calcule le cosinus d'un angle donné en radians.
+	- MATH_atan : Calcule l'arc tangente d'un rationnel donné.
+	- test_MATH_puissance : Suite de tests unitaires pour la fonction MATH_puissance.
+	- test_MATH_valeur_absolue : Suite de tests unitaires pour la fonction MATH_valeur_absolue.
+	- test_MATH_racine_carree : Suite de tests unitaires pour la fonction MATH_racine_carree.
+	- test_MATH_factorielle : Suite de tests unitaires pour la fonction MATH_factorielle.
+	- test_MATH_sin : Suite de tests unitaires pour la fonction MATH_sin.
+	- test_MATH_cos : Suite de tests unitaires pour la fonction MATH_cos.
+	- test_MATH_atan : Suite de tests unitaires pour la fonction MATH_atan.
+*****************************************************************************************/
+
 #include "mod_math.h"
 
 // Eleve une valeur x a une puissance n donnee.
