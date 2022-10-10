@@ -1,5 +1,5 @@
 #include "mod_cnc.h"
-/*
+
 commande CNC_prochaine_commande(void)
 {
 
@@ -109,4 +109,3 @@ void test_CNC_prochaine_commande(void)
 	}
 		 
 }
-*/

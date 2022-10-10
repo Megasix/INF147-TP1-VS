@@ -16,8 +16,8 @@ void TRACEUR_ligne(int x_1, int y_1, int x_2, int y_2)
 
 	if (x_2 < x_1)
 	{
-		SWAP(x_1, x_2);
-		SWAP(y_1, y_2);
+		SWAP(&x_1, &x_2);
+		SWAP(&y_1, &y_2);
 	}
 
 	int delta_x = x_2 - x_1;
@@ -53,8 +53,8 @@ void TRACEUR_ligne(int x_1, int y_1, int x_2, int y_2)
 		line(x_1, y_1 - RAYON, x_2, y_2 - RAYON);
 		break;
 	case 3 :			
-		double dx = (MATH_sin(MATH_atan(delta_y / delta_x))) * RAYON;
-		double dy = (MATH_cos(MATH_atan(delta_y / delta_x))) * RAYON;
+		int dx = (int)(MATH_sin(MATH_atan(delta_y / delta_x)) * RAYON);
+		int dy = (int)(MATH_cos(MATH_atan(delta_y / delta_x)) * RAYON);
 
 		if (delta_y < 0)	//si vrai : ligne oblique montant
 		{

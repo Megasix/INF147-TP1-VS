@@ -14,7 +14,7 @@ Auteur(e) :
 ****************************************************************************************/
 
 // Mode pour les tests unitaires
-#define TESTS 1
+#define TESTS 0
 
 // Librairies utilisées par l'application an mode normal
 #if !TESTS
@@ -25,7 +25,7 @@ Auteur(e) :
 // (Dés)activation des tests pour les différents modules
 #define TESTS_BITS    0
 #define TESTS_COM     0
-#define TESTS_MATH    1
+#define TESTS_MATH    0
 #define TESTS_CNC     0
 #define TESTS_TRACEUR 0
 
@@ -40,6 +40,14 @@ Auteur(e) :
 
 #if TESTS && TESTS_MATH
 	#include "mod_math.h"
+#endif
+
+#if TESTS && TESTS_CNC
+	#include "mod_cnc.h"
+#endif
+
+#if TESTS && TESTS_TRACEUR
+	#include "mod_traceur.h"
 #endif
 
 // (Dés)activation de l'exemple de l'Annexe A
@@ -65,8 +73,46 @@ Retour :
 
 	int main()
 	{
+		TRACEUR_initialiser_fenetre();
 
-		/* À remplir */
+		int x = 0;
+		int y = 0;
+		bool etat_laser = 0;
+		
+		commande commande_courante;
+		opcode code_operation;
+		operande operande_1;
+		operande operande_2;
+
+		while ((commande_courante = CNC_prochaine_commande()) != CLOSE)
+		{
+			code_operation = COM_get_opcode(commande_courante);
+			operande_1 = COM_get_operande_1(commande_courante);
+			operande_2 = COM_get_operande_2(commande_courante);
+
+			switch (code_operation)
+			{
+			case INDICE_LZON:
+				etat_laser = 1;
+				break;
+			case INDICE_LZOFF:
+				etat_laser = 0;
+				break;
+			case INDICE_DPLC:
+				if (etat_laser)
+				{
+					TRACEUR_ligne(x, y, operande_1, operande_2);
+				}
+				x = operande_1;
+				y = operande_2;
+				break;
+			case INDICE_DONE:
+				etat_laser = 0;
+				x = 0;
+				y = 0;
+				break;
+			}
+		}
 
 		system("pause");
 		return EXIT_SUCCESS;
@@ -74,15 +120,14 @@ Retour :
 	}
 
 #else
-
+#include "mod_outils.h"
 	int main(void)
 	{
-
 		#if TESTS_BITS
 			test_BITS_obtenir();
-			/*test_BITS_basculer();
-			test_BITS_afficher();
-			test_BITS_extraire();*/
+			test_BITS_basculer();
+			//test_BITS_afficher();
+			test_BITS_extraire();
 		#endif
 
 		#if TESTS_COM
@@ -92,13 +137,13 @@ Retour :
 		#endif
 
 		#if TESTS_MATH
-			//test_MATH_puissance();
-			//test_MATH_valeur_absolue();
-			//test_MATH_racine_carree();
-			//test_MATH_factorielle();
+			test_MATH_puissance();
+			test_MATH_valeur_absolue();
+			test_MATH_racine_carree();
+			test_MATH_factorielle();
 			test_MATH_sin();
-			//test_MATH_cos();
-			//test_MATH_atan();
+			test_MATH_cos();
+			test_MATH_atan();
         #endif		
 	
 		#if TESTS_CNC
