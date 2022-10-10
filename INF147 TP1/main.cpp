@@ -1,8 +1,18 @@
 /****************************************************************************************
 
-Auteur(e) :
-
-	Ecrire description ici
+Auteurs :
+	Barry Lawson
+	Philippe Marineau
+	Jean-Philippe Portant
+	Teano Rocha
+	
+	Voici notre solution au probleme du premier Travail Pratique (TP) du cours
+	INF-147. Nous devions implementer un systeme d'interpretation de signaux
+	transmis à une CNC via WiFi. L'enjeu du TP à été de mettre en commun notre
+	connaissance du format binaire afin de pouvoir dechifrer les donnees contenues
+	dans une ligne de commande et, notre connaissances des mathematiques qui nous
+	a servie a notamment afficher une previsualisation du tracer de la decoupeuse
+	laser.
 
 *****************************************************************************************/
 
