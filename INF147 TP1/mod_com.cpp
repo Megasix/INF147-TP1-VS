@@ -42,7 +42,7 @@ void test_COM_get_opcode()
 
 	const unsigned int une_commande = 2310760003; // La commande de l'énoncé
 	const unsigned int valeur_attendue = 3; // La valeur atendue selon l'énoncé
-	unsigned int valeur_obtenue;
+	unsigned int valeur_obtenue; // La valeur qui sera obtenue selon la fonction COM_get_opcode
 
 	valeur_obtenue = COM_get_opcode(une_commande);
 
@@ -74,7 +74,7 @@ void test_COM_get_operande_2()
 
 	const unsigned int une_commande = 2310760003; // La commande de l'énoncé
 	const unsigned int valeur_attendue = 475; // La valeur atendue selon l'énoncé
-	unsigned int valeur_obtenue;
+	unsigned int valeur_obtenue; // La valeur qui sera obtenue selon la fonction COM_get_operande_2
 
 	valeur_obtenue = COM_get_operande_2(une_commande);
 
