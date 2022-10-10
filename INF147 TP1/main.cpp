@@ -83,40 +83,53 @@ Retour :
 
 	int main()
 	{
-		TRACEUR_initialiser_fenetre(); 						// nous initialisons la fenetre (windows) a une certaine taille specifie dans /mod_traceur.h
-
-		int x = 0;								// position de la tete de la CNC en abscisses
-		int y = 0; 								// position de la tete de la CNC en ordonnees
-		bool etat_laser = 0;							// etat de fonctionnement de la tete laser de la CNC 0=OFF, 1=ON
+		// nous initialisons la fenetre (windows) a une certaine taille specifie dans /mod_traceur.h
+		TRACEUR_initialiser_fenetre();
 		
-		commande commande_courante;						// declaration de commande_courante, cette variable nous serviras notamment a verifier si l'on a recu une commande "CLOSE"
-		opcode code_operation;							// declaration de code_operation, cette variable nous indique quelle action nous devons effectuer
-		operande operande_1;							// declaration de operande_1, cette variable correspond a la premiere operande de la commande recue
-		operande operande_2;							// declaration de operande_2, cette variable correspond a la deuxieme operande de la commande recue
+		
+		int x = 0;		// position de la tete de la CNC en abscisses
+		int y = 0; 		// position de la tete de la CNC en ordonnees
+		bool etat_laser = 0;	// etat de fonctionnement de la tete laser de la CNC 0=OFF, 1=ON
+		
+		// declaration de commande_courante, cette variable nous serviras notamment a verifier si l'on a recu une commande "CLOSE"
+		commande commande_courante;
+		// declaration de code_operation, cette variable nous indique quelle action nous devons effectuer
+		opcode code_operation;	
+		// declaration de operande_1, cette variable correspond a la premiere operande de la commande recue
+		operande operande_1;
+		// declaration de operande_2, cette variable correspond a la deuxieme operande de la commande recue
+		operande operande_2;							
 
-		while ((commande_courante = CNC_prochaine_commande()) != CLOSE)		// tant que la commande_courante n'est pas une instruction CLOSE, on continue
+		// tant que la commande_courante n'est pas une instruction CLOSE, on continue
+		while ((commande_courante = CNC_prochaine_commande()) != CLOSE)		
 		{
-			code_operation = COM_get_opcode(commande_courante);		// assignation des valeur aux variables correspondantes
+			// assignation des valeur aux variables correspondantes
+			code_operation = COM_get_opcode(commande_courante);		
 			operande_1 = COM_get_operande_1(commande_courante);
 			operande_2 = COM_get_operande_2(commande_courante);
 
 			switch (code_operation)						
 			{
-			case INDICE_LZON:						// si code_operation est egal a INDICE_LZON on active le lazer
+			// si code_operation est egal a INDICE_LZON on active le lazer
+			case INDICE_LZON:						
 				etat_laser = 1;
 				break;
-			case INDICE_LZOFF:						// si code_operation est egal a INDICE_LZOFF on desactive le lazer
+			// si code_operation est egal a INDICE_LZOFF on desactive le lazer
+			case INDICE_LZOFF:						
 				etat_laser = 0;
 				break;
-			case INDICE_DPLC:						// si code_operation est egal a INDICE_DPLC on deplace la tete du lazer aux coordonnee x et y
+			// si code_operation est egal a INDICE_DPLC on deplace la tete du lazer aux coordonnee x et y
+			case INDICE_DPLC:	
+				// si etat_laser est ON (1), on affiche le trace dans la fenetre
 				if (etat_laser)
 				{
-					TRACEUR_ligne(x, y, operande_1, operande_2);	// si etat_laser est ON (1), on affiche le trace dans la fenetre
+					TRACEUR_ligne(x, y, operande_1, operande_2);	
 				}
 				x = operande_1;
 				y = operande_2;
 				break;
-			case INDICE_DONE:						// si code_operation est egal a INDICE_DONE on deplace la tete du lazer a la position initiale (x=0, y=0) et on desactive le lazer.
+			// si code_operation est egal a INDICE_DONE on deplace la tete du lazer a la position initiale (x=0, y=0) et on desactive le lazer.
+			case INDICE_DONE:						
 				etat_laser = 0;
 				x = 0;
 				y = 0;
