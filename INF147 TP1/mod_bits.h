@@ -7,6 +7,9 @@
 #define BIT_ACTIF    1		// Un bit allumé
 #define BIT_INACTIF  0		// Un bit éteint
 
+#define POSITION_MIN		1
+#define MASQUE_BIT_1		0b1
+
 /*
  BITS_OBTENIR
 

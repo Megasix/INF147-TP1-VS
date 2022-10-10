@@ -13,10 +13,6 @@ double MATH_puissance(double x, int n)
 			xn *= x;
 		}
 	}
-	else if (n < 0)
-	{
-		// Non implemente
-	}
 
 	return xn;
 }

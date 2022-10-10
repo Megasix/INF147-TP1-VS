@@ -1,8 +1,5 @@
 #include "mod_bits.h"
 
-#define POSITION_MIN		1
-#define MASQUE_BIT_1		0b1
-
 unsigned int BITS_obtenir(unsigned int valeur, unsigned int position)
 {
 	unsigned int valeur_bit = 0;
