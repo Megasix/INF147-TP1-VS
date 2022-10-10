@@ -14,7 +14,7 @@
 #define RAYON 10
 #define LIGNE_VERTICAL 1
 #define LIGNE_HORIZONTAL 2
-#define LIGNE OBLIQUE 3
+#define LIGNE_OBLIQUE 3
 
 
 /*
