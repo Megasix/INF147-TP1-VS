@@ -29,10 +29,16 @@ On y retrouve les sous-programmes suivants :
 
 #include <stdio.h>
 
+/*****************************************************************************************
+*                                      CONSTANTES                                        *
+*****************************************************************************************/
 
-#define MATH_EPSILON		0.0001
-#define MATH_PI				3.14159265
+#define MATH_EPSILON		0.0001		// Valeur selectionner pour Epsilon
+#define MATH_PI				3.14159265	// La constante mathematique PI
 
+/*****************************************************************************************
+*                                 FONCTIONS PUBLIQUES                                    *
+*****************************************************************************************/
 
 /*
  MATH_PUISSANCE
