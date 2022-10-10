@@ -8,7 +8,6 @@ void TRACEUR_initialiser_fenetre(void)
 	initwindow(DIM_LARGEUR, DIM_HAUTEUR);
 }
 
-
 void TRACEUR_ligne(int x_1, int y_1, int x_2, int y_2)
 {
 	//le type de tracer (vertical, horizontal, oblique)
@@ -19,7 +18,8 @@ void TRACEUR_ligne(int x_1, int y_1, int x_2, int y_2)
 		SWAP(x_1, x_2);
 		SWAP(y_1, y_2);
 	}
-
+	
+	//le delta x et y qui servira dans le calcul d'angle des lignes obliques
 	int delta_x = x_2 - x_1;
 	int delta_y = (y_2 - y_1);
 
@@ -56,12 +56,12 @@ void TRACEUR_ligne(int x_1, int y_1, int x_2, int y_2)
 		double dx = (MATH_sin(MATH_atan(delta_y / delta_x))) * RAYON;
 		double dy = (MATH_cos(MATH_atan(delta_y / delta_x))) * RAYON;
 
-		if (delta_y < 0)	//si vrai : ligne oblique montant
+		if (delta_y < 0)	//si vrai : la ligne est oblique montante
 		{
 			line(x_1 + dx, y_1 - dy, x_2 + dx, y_2 - dy);
 			line(x_1 - dx, y_1 + dy, x_2 - dx, y_2 + dy);
 		}
-		else			//sinon c'est descendant
+		else			//sinon la ligne est oblique descendante
 		{
 			line(x_1 + dx, y_1 + dy, x_2 + dx, y_2 + dy);
 			line(x_1 - dx, y_1 - dy, x_2 - dx, y_2 - dy);
