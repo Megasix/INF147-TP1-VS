@@ -16,20 +16,20 @@ Auteur(e) :
 // Mode pour les tests unitaires
 #define TESTS 1
 
-// Librairies utilisées par l'application an mode normal
+// Librairies utilisÃ©es par l'application an mode normal
 #if !TESTS
 	#include "mod_traceur.h"
 	#include "mod_cnc.h"
 #endif
 
-// (Dés)activation des tests pour les différents modules
+// (DÃ©s)activation des tests pour les diffÃ©rents modules
 #define TESTS_BITS    0
 #define TESTS_COM     0
 #define TESTS_MATH    1
 #define TESTS_CNC     0
 #define TESTS_TRACEUR 0
 
-// Librairies utilisées par l'application en mode test
+// Librairies utilisÃ©es par l'application en mode test
 #if TESTS && TESTS_BITS
 	#include "mod_bits.h"
 #endif
@@ -42,11 +42,11 @@ Auteur(e) :
 	#include "mod_math.h"
 #endif
 
-// (Dés)activation de l'exemple de l'Annexe A
+// (DÃ©s)activation de l'exemple de l'Annexe A
 #define TUTORIEL_GRAPHICS 0
 
 /****************************************************************************************
-*                           DEFINTION DU PROGRAMME PRINCIPALE                           *
+*                           DEFINTION DU PROGRAMME PRINCIPAL                            *
 ****************************************************************************************/
 
 /*
@@ -66,11 +66,49 @@ Retour :
 	int main()
 	{
 
-		/* À remplir */
+		TRACEUR_initialiser_fenetre();
+
+		int x = 0;
+		int y = 0;
+		bool etat_laser = 0;
+		
+		commande commande_courante;
+		opcode code_operation;
+		operande operande_1;
+		operande operande_2;
+
+		while ((commande_courante = CNC_prochaine_commande()) != CLOSE)
+		{
+			code_operation = COM_get_opcode(commande_courante);
+			operande_1 = COM_get_operande_1(commande_courante);
+			operande_2 = COM_get_operande_2(commande_courante);
+
+			switch (code_operation)
+			{
+			case INDICE_LZON:
+				etat_laser = 1;
+				break;
+			case INDICE_LZOFF:
+				etat_laser = 0;
+				break;
+			case INDICE_DPLC:
+				if (etat_laser)
+				{
+					TRACEUR_ligne(x, y, operande_1, operande_2);
+				}
+				x = operande_1;
+				y = operande_2;
+				break;
+			case INDICE_DONE:
+				etat_laser = 0;
+				x = 0;
+				y = 0;
+				break;
+			}
+		}
 
 		system("pause");
 		return EXIT_SUCCESS;
-
 	}
 
 #else
