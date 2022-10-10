@@ -24,7 +24,9 @@ void TRACEUR_ligne(int x_1, int y_1, int x_2, int y_2)
 	//le type de tracer (vertical, horizontal, oblique)
 	int type_tracer = 0;
 
-	//Si le x_2 entrée est plus petit, on permute les coordonnées afin de facilité les calculs plus tard
+	/*Si le x_2 entrée est plus petit, on permute les coordonnées 
+	afin de facilité les calculs plus tard
+	*/
 	if (x_2 < x_1)
 	{
 		SWAP(&x_1, &x_2);
