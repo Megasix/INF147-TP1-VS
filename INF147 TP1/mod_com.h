@@ -21,12 +21,20 @@ On y retrouve les sous-programmes suivants :
 
 #include <stdio.h>
 
-#define OPCODE_BIT_DEBUT			1
-#define OPCODE_BIT_FIN				3
-#define OPERANDE_1_BIT_DEBUT		4
-#define OPERANDE_1_BIT_FIN			13
-#define OPERANDE_2_BIT_DEBUT		14
-#define OPERANDE_2_BIT_FIN			23
+/*****************************************************************************************
+*                                      CONSTANTES                                        *
+*****************************************************************************************/
+
+#define OPCODE_BIT_DEBUT			1	// Position du premier bit du opcode
+#define OPCODE_BIT_FIN				3	// Position du dernier bit du opcode
+#define OPERANDE_1_BIT_DEBUT		4	// Position du premier bit du premier operande
+#define OPERANDE_1_BIT_FIN			13	// Position du dernier bit du premier operande
+#define OPERANDE_2_BIT_DEBUT		14	// Position du premier bit du deuxieme operande
+#define OPERANDE_2_BIT_FIN			23	// Position du dernier bit du deuxieme operande
+
+/*****************************************************************************************
+*                                 FONCTIONS PUBLIQUES                                    *
+*****************************************************************************************/
 
 /*
  COM_GET_OPCODE

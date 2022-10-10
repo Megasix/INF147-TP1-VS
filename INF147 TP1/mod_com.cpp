@@ -20,6 +20,10 @@ On y retrouve les sous-programmes suivants :
 
 #include "mod_bits.h"
 
+/*****************************************************************************************
+*                                 FONCTIONS PUBLIQUES                                    *
+*****************************************************************************************/
+
 // Extrait le code d'opération d'une commande.
 unsigned int COM_get_opcode(unsigned int une_commande)
 {
