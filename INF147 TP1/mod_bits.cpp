@@ -1,30 +1,62 @@
+/*****************************************************************************************
+Auteurs :	Barry Lawson
+			Philippe Marineau
+			Jean-Philippe Portant
+			Teano Rocha
+Date : Octobre 2022
+
+Permet de manipuler les données au niveau des bits avec les opérateurs binaires vus en
+classe
+	
+On y retrouve les sous-programmes suivants :
+	- BITS_obtenir : Retourne l'etat d'un bit a une position donnee
+	- BITS_basculer : Bascule un bit a une position donne
+	- BITS_extraire : Extrait les bits situe entre deux positions fournies d'une valeur
+	                  donnee
+	- test_BITS_obtenir : Suite de tests unitaires pour BITS_obtenir.
+	- test_BITS_basculer : Suite de tests unitaires pour BITS_basculer.
+	- test_BITS_extraire : Suite de tests unitaires pour BITS_extraire.
+*****************************************************************************************/
+
 #include "mod_bits.h"
 
+/*****************************************************************************************
+*                                 FONCTIONS PUBLIQUES                                    *
+*****************************************************************************************/
+
+// Retourne l'etat d'un bit a une position donnee
 unsigned int BITS_obtenir(unsigned int valeur, unsigned int position)
 {
-	unsigned int valeur_bit = 0;
+	unsigned int valeur_bit = 0;	// La valeur du bit a retourner
+	// Lecture du bit a la position donnee
 	if(position >= POSITION_MIN)
 		valeur_bit = (valeur >> (position - 1) & MASQUE_BIT_1);
 	return valeur_bit;
 }
 
+// Bascule un bit a une position donne
 void BITS_basculer(unsigned int* valeur, unsigned int position)
 {
+	// On bascule le bit a la position donne
 	if(position >= POSITION_MIN)
-		*valeur ^= (MASQUE_BIT_1 << (position - 1));
+		*valeur ^= (MASQUE_BIT_1 << (position - 1));	
 }
 
-unsigned int BITS_extraire(unsigned int valeur, unsigned int bit_depart, unsigned int bit_fin)
+// Extrait les bits situe entre deux positions fournies d'une valeur donnee
+unsigned int BITS_extraire(unsigned int valeur, unsigned int bit_depart
+	                      , unsigned int bit_fin)
 {
-	unsigned int segment_bits = 0;
+	unsigned int segment_bits = 0;	// La valeur du segments de bits selectionne
 	for (unsigned int position = bit_depart; position <= bit_fin; position++)
 	{
-		if (BITS_obtenir(valeur, position))
+		//On vérifie chaque bit entre les 2 positions et les extrait dans segments_bits
+		if (BITS_obtenir(valeur, position))	
 			BITS_basculer(&segment_bits, position - (bit_depart - 1));
 	}
 	return segment_bits;
 }
 
+// Suite de tests unitaires pour BITS_obtenir.
 void test_BITS_obtenir(void)
 {
 
@@ -56,6 +88,7 @@ void test_BITS_obtenir(void)
 
 }
 
+// Suite de tests unitaires pour BITS_basculer.
 void test_BITS_basculer(void)
 {
 
@@ -75,6 +108,7 @@ void test_BITS_basculer(void)
 
 }
 
+// Suite de tests unitaires pour BITS_extraire.
 void test_BITS_extraire(void)
 {
 

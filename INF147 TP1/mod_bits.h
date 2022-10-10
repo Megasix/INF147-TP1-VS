@@ -1,14 +1,41 @@
+/*****************************************************************************************
+Auteurs :	Barry Lawson
+			Philippe Marineau
+			Jean-Philippe Portant
+			Teano Rocha
+Date : Octobre 2022
+
+Permet de manipuler les données au niveau des bits avec les opérateurs binaires vus en
+classe
+
+On y retrouve les sous-programmes suivants :
+	- BITS_obtenir : Retourne l'etat d'un bit a une position donnee
+	- BITS_basculer : Bascule un bit a une position donne
+	- BITS_extraire : Extrait les bits situe entre deux positions fournies d'une valeur
+					  donnee
+	- test_BITS_obtenir : Suite de tests unitaires pour BITS_obtenir.
+	- test_BITS_basculer : Suite de tests unitaires pour BITS_basculer.
+	- test_BITS_extraire : Suite de tests unitaires pour BITS_extraire.
+*****************************************************************************************/
+
 #ifndef __MOD_BITS__
 #define __MOD_BITS__
 
 #include <stdio.h>
 
-#define UINT_NB_BITS 32		// Le nombre de bits dans un entier non signé
-#define BIT_ACTIF    1		// Un bit allumé
-#define BIT_INACTIF  0		// Un bit éteint
+/*****************************************************************************************
+*                                      CONSTANTES                                        *
+*****************************************************************************************/
 
-#define POSITION_MIN		1
-#define MASQUE_BIT_1		0b1
+#define UINT_NB_BITS	32		// Le nombre de bits dans un entier non signé
+#define BIT_ACTIF		1		// Un bit allumé
+#define BIT_INACTIF		0		// Un bit éteint
+#define POSITION_MIN	1		// L'indice du premier bit
+#define MASQUE_BIT_1	0b1		// Un masque avec le premier bit actif
+
+/*****************************************************************************************
+*                                 FONCTIONS PUBLIQUES                                    *
+*****************************************************************************************/
 
 /*
  BITS_OBTENIR
@@ -57,7 +84,8 @@ void BITS_basculer(unsigned int* valeur, unsigned int position);
 
 	segment_bits: Segment de bits extrait.
 */
-unsigned int BITS_extraire(unsigned int valeur, unsigned int bit_depart, unsigned int bit_fin);
+unsigned int BITS_extraire(unsigned int valeur, unsigned int bit_depart
+						  , unsigned int bit_fin);
 
 /*
  TEST_BITS_OBTENIR
