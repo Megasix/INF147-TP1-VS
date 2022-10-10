@@ -1,3 +1,10 @@
+/*********************************************************************
+Par : Tous
+Date : Octobre 2022
+Ce module permet de découper les commandes pour l'analyse.
+On y retrouve les sous-programmes suivants :
+ - 
+*********************************************************************/
 #ifndef __MOD_TRACEUR__
 #define __MOD_TRACEUR__
 
