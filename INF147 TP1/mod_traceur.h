@@ -34,7 +34,6 @@ On y retrouve les sous-programmes suivants :
 //valeur associée à une ligne oblique
 #define LIGNE_OBLIQUE 3
 
-
 /*
  TRACEUR_INITIALISER_FENETRE
 
