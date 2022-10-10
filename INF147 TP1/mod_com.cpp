@@ -17,6 +17,7 @@ On y retrouve les sous-programmes suivants :
 // Extrait le code d'opération d'une commande.
 unsigned int COM_get_opcode(unsigned int une_commande)
 {
+	// On va chercher l'opcode de la commande à l'aide de la fonction BITS_extraire
 	unsigned int opcode = BITS_extraire(une_commande, OPCODE_BIT_DEBUT, OPCODE_BIT_FIN);
 	return opcode;
 }
@@ -24,6 +25,7 @@ unsigned int COM_get_opcode(unsigned int une_commande)
 // Extrait le premier opérande d'une commande.
 unsigned int COM_get_operande_1(unsigned int une_commande)
 {
+	// On va chercher la premiere oprerande de la commande à l'aide de la fonction BITS_extraire
 	unsigned int operande_1 = BITS_extraire(une_commande, OPERANDE_1_BIT_DEBUT, OPERANDE_1_BIT_FIN);
 	return operande_1;
 }
@@ -31,6 +33,7 @@ unsigned int COM_get_operande_1(unsigned int une_commande)
 // Extrait le deuxième opérande d'une commande.
 unsigned int COM_get_operande_2(unsigned int une_commande)
 {
+	// On va chercher la deuxieme oprerande de la commande à l'aide de la fonction BITS_extraire
 	unsigned int operande_2 = BITS_extraire(une_commande, OPERANDE_2_BIT_DEBUT, OPERANDE_2_BIT_FIN);
 	return operande_2;
 }
@@ -44,6 +47,7 @@ void test_COM_get_opcode()
 	const unsigned int valeur_attendue = 3; // La valeur atendue selon l'énoncé
 	unsigned int valeur_obtenue; // La valeur qui sera obtenue selon la fonction COM_get_opcode
 
+	// On met l'opcode dans la valeur obtenue
 	valeur_obtenue = COM_get_opcode(une_commande);
 
 	printf("\n\tTest no.1 - COM_get_opcode(%u)\n", une_commande);
