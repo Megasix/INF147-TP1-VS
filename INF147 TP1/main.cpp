@@ -70,7 +70,7 @@ Auteurs :
 /*
 MAIN
 
-	Ecrire description ici
+	Nous faisons le liens entre les commandes recue et leur actions associées dans le main
 
 Parametres :
 	- Aucun
@@ -83,11 +83,11 @@ Retour :
 
 	int main()
 	{
-		TRACEUR_initialiser_fenetre();
+		TRACEUR_initialiser_fenetre(); 						// nous initialisons la fenetre (windows) a une certaine taille specifie dans /mod_traceur.h
 
-		int x = 0;
-		int y = 0;
-		bool etat_laser = 0;
+		int x = 0;								// position de la tete de la CNC en abscisses
+		int y = 0; 								// position de la tete de la CNC en ordonnees
+		bool etat_laser = 0;							// etat de fonctionnement de la tete laser de la CNC 0=OFF, 1=ON
 		
 		commande commande_courante;
 		opcode code_operation;
