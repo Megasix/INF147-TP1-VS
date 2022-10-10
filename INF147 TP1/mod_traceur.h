@@ -11,9 +11,16 @@
 // Tolérance en pixels pour le graphique
 #define TRACEUR_EPSILON 1
 
+//Rayon de cercle aux extrémités des lignes tracées
 #define RAYON 10
+
+//valeur associée à une ligne verticale
 #define LIGNE_VERTICAL 1
+
+//valeur associée à une ligne horizontale
 #define LIGNE_HORIZONTAL 2
+
+//valeur associée à une ligne oblique
 #define LIGNE_OBLIQUE 3
 
 
