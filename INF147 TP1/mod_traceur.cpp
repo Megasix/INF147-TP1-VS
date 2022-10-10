@@ -25,15 +25,15 @@ void TRACEUR_ligne(int x_1, int y_1, int x_2, int y_2)
 
 	if (delta_x == 0)	//ligne vertical
 	{
-		type_tracer = 1;
+		type_tracer = LIGNE_VERTICAL;
 	}
 	else if (delta_y == 0)	//ligne horizontal
 	{
-		type_tracer = 2;
+		type_tracer = LIGNE_HORIZONTAL;
 	}
 	else			//ligne oblique
 	{
-		type_tracer = 3;
+		type_tracer = LIGNE_OBLIQUE;
 	}
 
 	setcolor(WHITE);
