@@ -44,7 +44,7 @@ void TRACEUR_ligne(int x_1, int y_1, int x_2, int y_2)
 	circle(x_1, y_1, RAYON);
 	circle(x_2, y_2, RAYON);
 	
-	//on trace les lignes suplémentaire en fonction du type de tracé
+	//on trace les lignes supplémentaires en fonction du type de tracé
 	switch (type_tracer)
 	{
 	case 1 :			
